@@ -3,7 +3,7 @@ import React from "react";
 
 function LoginForm() {
     return(
-        <div>
+        <div className="loginForm">
             <div className="loginFormText mb-3" > Sign in </div>
             <InputForm id={ "login-email" } placeholder={ "Username" }></InputForm>
             <InputForm id={ "login-pass" } type={ "password" } placeholder={ "Password" }></InputForm>

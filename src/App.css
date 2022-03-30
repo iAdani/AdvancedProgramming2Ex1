@@ -32,6 +32,11 @@
   color: whitesmoke;
   font-weight: bold;
   font-size: xx-large;
+  text-align: center;
+}
+
+.loginForm {
+  width: 15%;
 }
 
 .white-text {
