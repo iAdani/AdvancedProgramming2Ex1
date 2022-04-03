@@ -3,10 +3,11 @@ import React from "react";
 
 export default function MainScreen() {
     return(
-        <div className="w-15-pc mb-3">
-            <div className="form-header mb-3" >Welcome</div>
-            <Link className="w-100 mb-3 btn btn-primary" to="/login">Sign in</Link>
-            <Link className="w-100 mb-3 btn btn-primary" to="/register">Register</Link>
+        <div className="mainContainer">
+            <div className="welcomeText" >
+                <h2>Welcome</h2></div>
+            <Link className="button mb-3" to="/login">Sign in</Link>
+            <Link className="button" to="/register">Register</Link>
         </div>
     )
 }
