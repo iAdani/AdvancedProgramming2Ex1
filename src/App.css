@@ -1,8 +1,9 @@
 .welcomeText{
-    margin: 3rem 0 2rem 0;
+    color: #ffffff;
+    margin: 0 0 3rem 0;
     font-family: 'Pacifico', cursive;
     font-size: 80px;
-    text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.75);
+    text-shadow: -2px 2px 13px rgba(20, 0, 93, 0.85);
 }
 
 .signInText{
@@ -38,10 +39,9 @@
 
 
 .mainButton{
-  background: linear-gradient(to right, #d23bea 20%, #2e97e2 79%);
-  text-transform: uppercase;
+  background: linear-gradient(to top left, #eb9cf8 20%, #5eabe2 79%);
   text-align: center;
-  flex-direction: column;
+  justify-content: center;
   text-decoration: solid;
   font-size: 20px;
   letter-spacing: 0.1rem;
@@ -53,6 +53,19 @@
   cursor: pointer;
   display: flex;
   padding: 8px;
+  box-shadow: 0 1px 0 rgba(31, 38,135,0.37);
+}
+
+.mainButton:focus {
+    box-shadow: 0 0 0 0.2rem #b9abe0;
+
+}
+
+.mainButton:hover {
+    background: rgba(255, 255, 255, 0.55);
+    color: black;
+    
+
 }
 
 
