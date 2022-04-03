@@ -1,29 +1,14 @@
-.mainContainer{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    height: 50vh;
-    width: 40vw;
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(8.5px);
-    border-radius: 10px;
-    color: #000000;
-    text-transform: uppercase;
-    letter-spacing: 0.3rem;
-}
-
 .welcomeText{
     margin: 3rem 0 2rem 0;
-    font-family: 'Raleway', sans-serif;
-
+    font-family: 'Pacifico', cursive;
+    font-size: 80px;
+    text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.75);
 }
 
 .signInText{
     margin: 3rem 0 2rem 0;
     text-align: center;
     font-size: 200%;
-    /* font-family: 'Raleway', sans-serif; */
 }
 
 .styledInput{
@@ -53,12 +38,14 @@
     font-size: 1rem;
 }
 
-.button{
+.mainButton{
   background: linear-gradient(to right, #d23bea 20%, #2e97e2 79%);
   text-transform: uppercase;
   text-align: center;
+  text-decoration: solid;
+  font-size: 20px;
   letter-spacing: 0.1rem;
-  width: 70%;
+  width: 60%;
   height: 3rem;
   border: none;
   color: white;
