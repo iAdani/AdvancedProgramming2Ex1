@@ -1,48 +1,54 @@
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.welcomeText{
+    margin: 3rem 0 2rem 0;
+    font-family: 'Pacifico', cursive;
+    font-size: 80px;
+    text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.75);
 }
 
-.App {
+.signInText{
+    margin: 3rem 0 2rem 0;
+    text-align: center;
+    font-size: 200%;
+}
+
+.styledInput{
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 1px 0 rgba(31, 38,135,0.37);
+    border-radius: 2rem;
+    width: 120%;
+    /* height: 3rem ; */
+    padding: 1rem !important;
+    border: none;
+    outline: none;
+    /* display: inline-block; */
+    /* box-shadow: 0 0 0 0.2rem #b9abe0; */
+    backdrop-filter: blur(12rem);
+}
+
+.styledInput:focus{
+    display: inline-block;
+    box-shadow: 0 0 0 0.2rem #b9abe0;
+    backdrop-filter: blur(12rem);
+    border-radius: 2rem;
+}
+
+.styledInput::placeholder{
+    color: #ff0000;
+    font-weight: 100;
+    font-size: 1rem;
+}
+
+.mainButton{
+  background: linear-gradient(to right, #d23bea 20%, #2e97e2 79%);
+  text-transform: uppercase;
   text-align: center;
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.form-header {
-  color: whitesmoke;
-  font-weight: bold;
-  font-size: xx-large;
-  text-align: center;
-}
-
-.w-15-pc {
-  width: 15%;
-}
-
-.white-text {
-  color: whitesmoke;
-}
-
-.fade {
-  transition: 0.5s linear;
+  text-decoration: solid;
+  font-size: 20px;
+  letter-spacing: 0.1rem;
+  width: 60%;
+  height: 3rem;
+  border: none;
+  color: white;
+  border-radius: 2rem;
+  cursor: pointer;
 }
