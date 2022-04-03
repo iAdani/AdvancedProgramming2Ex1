@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: center;
     height: 50vh;
     width: 40vw;
     background: rgba(255, 255, 255, 0.15);
@@ -12,5 +13,5 @@
     border-radius: 10px;
     color: #000000;
     /* text-transform: uppercase; */
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.1rem;
 }

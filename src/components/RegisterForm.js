@@ -5,8 +5,8 @@ import {Link} from "react-router-dom";
 function RegisterForm() {
     return(
         <div className="mainContainer">
-            <div className="w-15-pc">
-                <div className="form-header mb-3" >Register</div>
+            <div className="w-45">
+                <div className="signInText" >Register</div>
                 <InputForm id={ "register-username" } placeholder={ "Username" }> </InputForm>
                 <InputForm id={ "register-pass" } type={ "password" } placeholder={ "Password" }> </InputForm>
                 <InputForm id={ "register-display-name" } type={ "text" } placeholder={ "Display Name" }> </InputForm>

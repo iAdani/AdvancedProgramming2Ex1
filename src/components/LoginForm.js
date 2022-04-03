@@ -6,7 +6,7 @@ import './MainContainer.css'
 function LoginForm() {
     return(
         <div className="mainContainer">
-            <div>
+            <div className="w-45">
                 <div className="signInText" > Sign In </div>
                 <InputForm id={ "login-username" } placeholder={ "Username" } type="text"> </InputForm>
                 <InputForm id={ "login-pass" } placeholder={ "Password" } type="password"> </InputForm>
