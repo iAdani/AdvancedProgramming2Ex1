@@ -10,7 +10,7 @@ function LoginForm() {
                 <div className="signInText" > Sign In </div>
                 <InputForm id={ "login-username" } placeholder={ "Username" } type="text"> </InputForm>
                 <InputForm id={ "login-pass" } placeholder={ "Password" } type="password"> </InputForm>
-                <button className="w-100 btn btn-primary">Sign In</button>
+                <button className="w-100 btn mainButton">Sign In</button>
                 <div className="mb-3 white-text">Not registered? <Link to="/register">Register</Link>.</div>
             </div>
         </div>
