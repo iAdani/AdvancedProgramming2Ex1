@@ -1,5 +1,5 @@
 import InputForm from "./InputForm";
-import React from "react";
+import React, { useRef } from "react";
 import {Link, useNavigate} from "react-router-dom";
 import { useState } from "react";
 
@@ -7,11 +7,12 @@ import './MainContainer.css';
 import './forms.css';
 import {LoginCheck} from "../DBAdapater"
 
+
 export default function LoginForm() {
 
     let navigate = useNavigate(); 
 
-    const [invalidMessage, setInvalidMessage] = useState("")
+    const [invalidMessage, setInvalidMessage] = useState("");
 
     const Login = function(element) {
         var username = document.getElementById("login-username").value.toLowerCase();
@@ -19,7 +20,7 @@ export default function LoginForm() {
         element.preventDefault();
         if(LoginCheck(username, password) < 0) {
             setInvalidMessage("Invalid username or password.");
-            setTimeout(() => {setInvalidMessage("");}, 4000);
+            setTimeout(() => {setInvalidMessage("");}, 4500);
         } else {
             navigate('/chats');
         }

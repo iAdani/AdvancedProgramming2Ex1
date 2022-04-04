@@ -2,7 +2,7 @@
 // Hardcoded DB
 const usernames = ["guy"    , "chen"    , "yotam"];
 const passwords = ["77777"  , "55555"   , "12345"];
-const nicknames = ["Adani"  , "Chen"    , "Yotam"]
+const nicknames = ["Adani"  , "Chen"    , "Yotatm"];
 
 // Add a new user to the DB
 function AddUser(username, password) {
