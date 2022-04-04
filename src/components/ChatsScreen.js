@@ -2,6 +2,6 @@
 export default function() {
 
     return (
-        <div>chats!</div>
+        <div>chats!!!!</div>
     );
 }
