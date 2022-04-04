@@ -1,0 +1,44 @@
+.styledInput{
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 1px 0 rgba(31, 38,135,0.37);
+    border-radius: 2rem;
+    width: 100%;
+    /* height: 3rem ; */
+    border: none;
+    outline: none;
+    /* display: inline-block; */
+    /* box-shadow: 0 0 0 0.2rem #b9abe0; */
+    backdrop-filter: blur(12rem);
+    text-indent:8px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.styledInput:focus{
+    background: rgba(255, 255, 255, 0.35);
+    display: inline-block;
+    box-shadow: 0 0 0 0.2rem #b9abe0;
+    backdrop-filter: blur(12rem);
+    border-radius: 2rem;
+    font-family: 'Raleway', sans-serif;
+    text-indent:8px;
+}
+
+.input-label-margin {
+    margin-left: 7px;
+}
+
+.goodInput {
+    background: rgba(0, 255, 0, 0.20)  !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 255, 0, 0.35) !important;
+}
+
+.badInput {
+    background: rgba(255, 0, 0, 0.20)  !important;
+    box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.35) !important;
+}
+
+.invalidMessage {
+    color: rgb(180, 0, 0);
+    height: 2rem;
+
+}
