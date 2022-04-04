@@ -10,7 +10,7 @@ export default function RegisterForm() {
 
     return(
         <div className="mainContainer">
-            <div className="w-45">
+            <form className="w-45">
                 <div className="welcomeText" >Register</div>
                 <InputForm id={ "register-username" } placeholder={ "Username" }> </InputForm>
                 <InputForm id={ "register-password" } type={ "password" } placeholder={ "Password" }> </InputForm>
@@ -18,7 +18,7 @@ export default function RegisterForm() {
                 <InputForm id={ "register-display-name" } type={ "text" } placeholder={ "Display Name" }> </InputForm>
                 <button onSubmit={Register} className="mainButton w-100 btn btn-primary" type="submit">Register</button>
                 <div className="mb-3 white-text">Already registered? <Link to="/login">Sign in</Link>.</div>
-            </div>
+            </form>
         </div>
     )
 }
