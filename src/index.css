@@ -6,8 +6,9 @@
   box-sizing: border-box;
 }
 body {
-  background-image: url(/icecream.jpg);
-  background-size: cover;
+  background-image: url(/Project\ Portfolio.png);
+  background-size:cover;
+  background-repeat: no-repeat;
   justify-content: center;
   display: flex;
   height: 100vh;

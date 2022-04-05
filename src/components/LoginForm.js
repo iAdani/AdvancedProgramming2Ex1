@@ -7,10 +7,10 @@ function LoginForm() {
     return(
         <div className="mainContainer">
             <div className="w-45">
-                <div className="signInText" > Sign In </div>
+                <div className="welcomeText" > Sign in </div>
                 <InputForm id={ "login-username" } placeholder={ "Username" } type="text"> </InputForm>
                 <InputForm id={ "login-pass" } placeholder={ "Password" } type="password"> </InputForm>
-                <button className="w-100 btn mainButton">Sign In</button>
+                <button className="mainButton w-100 btn">Sign in</button>
                 <div className="mb-3 white-text">Not registered? <Link to="/register">Register</Link>.</div>
             </div>
         </div>
