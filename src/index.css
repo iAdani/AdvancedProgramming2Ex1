@@ -5,8 +5,9 @@
   box-sizing: border-box;
 }
 body {
-  background-image: url(/3600167.jpg);
-  background-size: cover;
+  background-image: url(/wp10419991-bored-ape-wallpapers.jpg);
+  background-size:cover;
+  background-repeat: no-repeat;
   justify-content: center;
   align-items: center;
   display: flex;
