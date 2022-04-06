@@ -1,7 +1,11 @@
+import './Chats.css'
 
 export default function ChatsScreen() {
 
     return (
-        <div>chats!!!!</div>
+        <div className="chats__body">
+            {/* Sidebar */}
+            {/* Chat */}
+        </div>
     );
 }
