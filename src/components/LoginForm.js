@@ -1,5 +1,5 @@
 import InputForm from "./InputForm";
-import React, { useRef } from "react";
+import React from "react";
 import {Link, useNavigate} from "react-router-dom";
 import { useState } from "react";
 
@@ -20,7 +20,7 @@ export default function LoginForm() {
         element.preventDefault();
         if(LoginCheck(username, password) < 0) {
             setInvalidMessage("Invalid username or password.");
-            setTimeout(() => {setInvalidMessage("");}, 4500);
+            setTimeout(() => {setInvalidMessage("");}, 5000);
         } else {
             navigate('/chats');
         }
@@ -30,10 +30,10 @@ export default function LoginForm() {
         <div className="mainContainer">
             <form className="w-45" onSubmit={Login}>
                 <div className="welcomeText" > Sign in </div>
-                <InputForm id={ "login-username" } placeholder={ "Username" } type="text"> </InputForm>
-                <InputForm id={ "login-password" } placeholder={ "Password" } type="password"> </InputForm>
+                <InputForm id={ "login-username" } placeholder={ "Username" } type="text"/>
+                <InputForm id={ "login-password" } placeholder={ "Password" } type="password"/>
                 <div className="invalidMessage mb-1">{invalidMessage}</div>
-                <button type="submit" className="mainButton w-100 btn">Sign in</button>
+                <button type="submit" className="mainButton w-75 btn">Sign in</button>
                 <div className="mb-3 white-text">Not registered? <Link to="/register">Register</Link>.</div>
             </form>
         </div>

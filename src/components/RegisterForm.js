@@ -16,7 +16,11 @@ export default function RegisterForm() {
                 <InputForm id={ "register-password" } type={ "password" } placeholder={ "Password" }> </InputForm>
                 <InputForm id={ "register-pass-check" } type={ "password" } placeholder={ "Confirm Password" }> </InputForm>
                 <InputForm id={ "register-display-name" } type={ "text" } placeholder={ "Display Name" }> </InputForm>
-                <button onSubmit={Register} className="mainButton w-100 btn btn-primary" type="submit">Register</button>
+                <div className="mb-3 styledInput register-image">
+                    <span className=""><input id="register-image" type="file"/></span>
+                    <label htmlFor="register-image">Upload an image</label>
+                </div>
+                <button onSubmit={Register} className="mainButton w-75 btn" type="submit">Register</button>
                 <div className="mb-3 white-text">Already registered? <Link to="/login">Sign in</Link>.</div>
             </form>
         </div>
