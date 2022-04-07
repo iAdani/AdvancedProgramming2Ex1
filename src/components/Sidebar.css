@@ -22,7 +22,6 @@
     border-radius: 7px;
 }
 
-
 .bi-search {
     border: none;
     padding: 10px;
@@ -60,4 +59,5 @@
     flex: 1;
     background-color: white;
     overflow: auto;
+    border-bottom-left-radius: 5px;
 }
