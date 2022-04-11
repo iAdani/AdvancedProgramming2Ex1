@@ -1,6 +1,7 @@
 import InputForm from "./InputForm";
 import React from "react";
 import {Link} from "react-router-dom";
+import VerficationBox from "./VerficationBox";
 
 export default function RegisterForm() {
     const Register = function() {
@@ -23,6 +24,7 @@ export default function RegisterForm() {
                 <button onSubmit={Register} className="mainButton w-75 btn" type="submit">Register</button>
                 <div className="mb-3 white-text">Already registered? <Link to="/login">Sign in</Link>.</div>
             </form>
+            <VerficationBox />
         </div>
     )
 }

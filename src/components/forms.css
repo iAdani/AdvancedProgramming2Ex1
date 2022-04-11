@@ -1,5 +1,6 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
 
 .styledInput{
     background: rgba(255, 255, 255, 0.40);
@@ -11,6 +12,7 @@
     backdrop-filter: blur(12rem);
     text-indent:8px;
     /* font-family: 'Raleway', sans-serif; */
+    font-family: 'Poppins', sans-serif;
 }
 
 .styledInput:focus{
@@ -42,7 +44,7 @@
     color: rgb(180, 0, 0);
     height: 2rem;
     font-weight: bold;
-
+    font-family: 'Poppins', sans-serif;
 }
 
 .welcomeText{
@@ -50,7 +52,8 @@
     margin: 0 0 3rem 0;
     /* font-family: 'Roboto Slab', serif; */
     font-family: 'Poppins', sans-serif;
-    font-size: 70px;
+    /* font-size: 70px; */
+    font-size: 200%;
     text-shadow: -2px 2px 13px rgba(185, 185, 185, 0.85);
 }
 
@@ -77,6 +80,7 @@
   /* display: flex; */
   padding: 8px;
   box-shadow: 0 1px 0 rgba(31, 38,135,0.37);
+  font-family: 'Poppins', sans-serif;
 }
 
 .mainButton:focus {
@@ -86,8 +90,6 @@
 .mainButton:hover {
     background: rgba(255, 255, 255, 0.75);
     color: black;
-    
-
 }
 
 .w-45 {
