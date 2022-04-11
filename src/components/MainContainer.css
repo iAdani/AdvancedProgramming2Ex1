@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
 
 .mainContainer{
-    display: flex;
     align-items: center;
     text-align: center;
     flex-direction: column;
