@@ -1,5 +1,6 @@
 import React from 'react'
 import "./Chat.css"
+import AttachButton from './AttachButton'
 
 function Chat() {
   return (
@@ -20,12 +21,15 @@ function Chat() {
         </div>
 
         <div className="chat__footer">
-            <h4>
+            {/* <h4>
             <i class="bi bi-paperclip"></i>
-            </h4>
+            </h4> */}
+            <AttachButton />
             <form>
                 <input placeholder="Type a message" type="text" />
-                <button type="submit">Send a message</button>
+                <button type="submit">
+                    <i class="bi bi-send"></i>
+                </button>
             </form>
         </div>
     </div>

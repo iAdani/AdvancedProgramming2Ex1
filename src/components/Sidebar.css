@@ -5,6 +5,7 @@
     flex-direction: column;
     flex: 0.30;
 }
+
 .sidebar__search {
     display: flex;
     align-items: center;
@@ -30,7 +31,13 @@
 .sidebar__searchContainer > input {
     border: none;
     margin-left: 10px;
+    outline: none;
+    flex: 1;
 }
+
+/* .sidebar__searchContainer > input:focus {
+    outline: none;
+} */
 
 .sidebar__header {
     display: flex;
@@ -40,7 +47,7 @@
 }
 
 .sidebar__header > h4 {
-    
+    margin: 22px 160px 0px 0px;
 }
 
 .bi-person-circle {
