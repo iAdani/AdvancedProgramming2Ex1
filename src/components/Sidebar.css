@@ -46,10 +46,6 @@
     border-right: 1px solid lightgray;
 }
 
-.sidebar__header > h4 {
-    margin: 22px 160px 0px 0px;
-}
-
 .bi-person-circle {
     font-size: 40px; 
 }
@@ -67,4 +63,9 @@
     background-color: white;
     overflow: auto;
     border-bottom-left-radius: 5px;
+}
+
+.sidebar__header > span {
+    font-size: 1.5rem;
+    font-weight: bolder;
 }

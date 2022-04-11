@@ -6,8 +6,7 @@ function Sidebar() {
   return (
     <div className="sidebar">
         <div className="sidebar__header">
-            <i class="btn bi bi-person-circle"></i>
-            <h4>Ben Gvir</h4>
+            <span><i class="btn bi bi-person-circle"></i> Ben Gvir</span>
             <i class="btn bi bi-person-plus"></i>
         </div>
 

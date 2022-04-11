@@ -1,0 +1,13 @@
+
+#chat-attachment {
+    color: black;
+    padding: 0.2rem;
+}
+
+.attachment-icon {
+    font-size: 1.3rem;
+}
+
+.dropdown-menu {
+    min-width: 0;
+}
