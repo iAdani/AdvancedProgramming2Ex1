@@ -6,10 +6,9 @@ function Chat() {
   return (
     <div className="chat">
         <div className="chat__header">
-            <i class="btn bi bi-person-circle"></i>
             <div className="chat__headerInfo">
-                <h4>Contact Name</h4>
-                <p>Last seen at...</p>
+                <i class="btn bi bi-person-circle"></i>
+                <span><p>Contact Name</p><span>Last seen at...</span></span>
             </div>
         </div>
 
