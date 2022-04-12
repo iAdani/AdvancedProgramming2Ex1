@@ -3,19 +3,20 @@ import "./Sidebar.css";
 import SidebarChat from "./SidebarChat";
 import { GetChats, GetNickname } from '../DBAdapater';
 
+
 function Sidebar(props) {
     var nickname = GetNickname(props.activeUser);
     
     const [search, setSearch] = useState("")
     const [filter, setFilter] = useState("")
 
-    return (
-        <div className="sidebar">
-            <div className="sidebar__header">
-                <i class="btn bi bi-person-circle"></i>
-                <h4>{nickname}</h4>
-                <i class="btn bi bi-person-plus"></i>
-            </div>
+  return (
+    <div className="sidebar">
+        <div className="sidebar__header">
+            <span><i class="btn bi bi-person-circle"></i>{ nickname }</span>
+            <i class="btn bi bi-person-plus"></i>
+        </div>
+
 
             <div className="sidebar__search">
                 <div className="sidebar__searchContainer">
@@ -33,6 +34,7 @@ function Sidebar(props) {
                 <SidebarChat />
                 <SidebarChat />
             </div>
+
         </div>
     )
 }

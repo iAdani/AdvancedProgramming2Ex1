@@ -5,6 +5,7 @@
     flex-direction: column;
     flex: 0.30;
 }
+
 .sidebar__search {
     display: flex;
     align-items: center;
@@ -30,17 +31,19 @@
 .sidebar__searchContainer > input {
     border: none;
     margin-left: 10px;
+    outline: none;
+    flex: 1;
 }
+
+/* .sidebar__searchContainer > input:focus {
+    outline: none;
+} */
 
 .sidebar__header {
     display: flex;
     justify-content: space-between;
     padding: 5px;
     border-right: 1px solid lightgray;
-}
-
-.sidebar__header > h4 {
-    
 }
 
 .bi-person-circle {
@@ -60,4 +63,9 @@
     background-color: white;
     overflow: auto;
     border-bottom-left-radius: 5px;
+}
+
+.sidebar__header > span {
+    font-size: 1.5rem;
+    font-weight: bolder;
 }

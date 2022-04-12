@@ -1,18 +1,19 @@
 import React from 'react'
 // import { useNavigate } from 'react-router-dom'
 import "./Chat.css"
-// import { } from '../DBAdapter.js'
+import AttachButton from './AttachButton'
 
 function Chat(props) {
     return (
         <div className="chat">
             <div className="chat__header">
-                <i class="btn bi bi-person-circle"></i>
                 <div className="chat__headerInfo">
-                    <h4>{props.activeChat}</h4>
-                    <p>Last seen at...</p>
+                  <i class="btn bi bi-person-circle"></i>
+                  <span><p>Contact Name</p><span>Last seen at...</span></span>
                 </div>
             </div>
+
+            
 
             <div className="chat__body">
                 {/* only add chat__reciever if some condition is true-> message.name === user.displayName */}
@@ -21,15 +22,16 @@ function Chat(props) {
                 </p>
             </div>
 
-            <div className="chat__footer">
-                <h4>
-                    <i class="bi bi-paperclip"></i>
-                </h4>
-                <form>
-                    <input placeholder="Type a message" type="text" />
-                    <button type="submit">Send a message</button>
-                </form>
-            </div>
+
+        <div className="chat__footer">
+            <AttachButton />
+            <form>
+                <input placeholder="Type a message" type="text" />
+                <button type="submit">
+                    <i class="bi bi-send"></i>
+                </button>
+            </form>
+        </div>
         </div>
     )
 }

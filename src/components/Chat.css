@@ -1,3 +1,7 @@
+p {
+    margin: 0;
+}
+
 .chat {
     flex: 0.70;
     border-top-right-radius: 5px;
@@ -11,24 +15,26 @@
     display: flex;
     align-items: center;
     border-bottom: 1px solid lightgray;
-    min-width: 50%;
-    
+    min-width: 50%; 
 }
 
 .chat__headerInfo {
-    flex: 1;
-    padding-left: 20px;
-    justify-content: space-between;
+    /* flex: 1; */
+    /* padding-left: 20px; */
+    justify-content: left;
+    align-items: center;
+    display: flex;
+    /* flex-direction: column; */
+}
+.chat__headerInfo > span {
+    display: flex;
+    flex-direction: column;
+}
+.chat__headerInfo > span > p{
+   font-weight: bold;
+   font-size: 1.3rem;
 }
 
-.chat__headerInfo > h4{
-   margin-bottom: 3px;
-   font-weight: 500; 
-}
-
-.chat__headerInfo > p {
-    color: gray;
-}
 
 .chat__message {
     position: relative;
@@ -51,7 +57,7 @@
 }
 
 .chat__body {
-    flex: 1;
+   flex: 1;
    background-image: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png");
    background-repeat: repeat;
    background-position: center;
@@ -79,13 +85,16 @@
     border-radius: 7px;
     padding: 10px;
     border: none;
+    outline: none;
 }
 
 .chat__footer > form > button {
-   display: none; 
+   /* display: none;  */
+   border: none;
+   padding: 10px;
+   font-size: large;
 }
 
-.bi-paperclip:hover {
-  padding: 10px;
-  cursor: pointer;
+.bi-paperclip{
+    padding: 10px;
 }

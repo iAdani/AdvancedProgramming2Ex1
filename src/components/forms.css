@@ -1,5 +1,9 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+
 .styledInput{
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.40);
     box-shadow: 0 1px 0 rgba(31, 38,135,0.37);
     border-radius: 2rem;
     width: 100%;
@@ -7,16 +11,19 @@
     outline: none;
     backdrop-filter: blur(12rem);
     text-indent:8px;
-    font-family: 'Raleway', sans-serif;
+    /* font-family: 'Raleway', sans-serif; */
+    font-family: 'Poppins', sans-serif;
 }
 
 .styledInput:focus{
-    background: rgba(255, 255, 255, 0.55);
+    /* background: rgba(255, 255, 255, 0.55); */
+    background-color: whitesmoke;
     display: inline-block;
-    box-shadow: 0 0 0 0.2rem #b9abe0;
+    box-shadow: 0 0 0 0.2rem #9e9e9f;
     backdrop-filter: blur(12rem);
     border-radius: 2rem;
-    font-family: 'Raleway', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family: 'Poppins', sans-serif;
     text-indent:8px;
 }
 
@@ -37,15 +44,16 @@
     color: rgb(180, 0, 0);
     height: 2rem;
     font-weight: bold;
-
+    font-family: 'Poppins', sans-serif;
 }
 
 .welcomeText{
-    color: #ffffff;
-    margin: 0 0 3rem 0;
-    font-family: 'Pacifico', cursive;
-    font-size: 80px;
-    text-shadow: -2px 2px 13px rgba(20, 0, 93, 0.85);
+    color: #000000;
+    margin: 0 0 1rem 0;
+    /* font-family: 'Roboto Slab', serif; */
+    font-family: 'Poppins', sans-serif;
+    font-size: 4vw;
+    text-shadow: -2px 2px 13px rgba(185, 185, 185, 0.85);
 }
 
 .signInText{
@@ -55,7 +63,8 @@
 }
 
 .mainButton{
-  background: linear-gradient(to top left, #eb9cf8 20%, #5eabe2 79%);
+  /* background: linear-gradient(to top left, #d8d8d8 20%, #5855553d 79%); */
+  background: rgb(197, 225, 210);
   text-align: center;
   justify-content: center;
   text-decoration: solid;
@@ -64,28 +73,26 @@
   width: 60%;
   height: 3rem;
   border: none;
-  color: white;
-  border-radius: 2rem;
+  color: rgb(0, 0, 0);
+  border-radius: 20px;
   cursor: pointer;
   /* display: flex; */
   padding: 8px;
   box-shadow: 0 1px 0 rgba(31, 38,135,0.37);
+  font-family: 'Poppins', sans-serif;
 }
 
 .mainButton:focus {
-    box-shadow: 0 0 0 0.2rem #b9abe0;
-
+    box-shadow: 0 0 0 0.1rem #a0a0a0;
 }
 
 .mainButton:hover {
-    background: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.75);
     color: black;
-    
-
 }
 
 .w-45 {
-    width: 45% !important;
+    width: 50% !important;
     text-align: center;
     justify-content: center;
 }
@@ -109,4 +116,8 @@
     text-align: left;
     padding-left: 10px;
     
+}
+
+.pointer {
+    cursor: pointer;
 }
