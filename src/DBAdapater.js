@@ -1,31 +1,44 @@
+// hardcoded DB
+const users = [
+    new User("guy", "iAdani", "77777"),
+    new User("chen", "Chnana", "55555"),
+    new User("yotam", "Yotatm", "12345")
+];
 
-// Hardcoded DB
-const usernames = ["guy"    , "chen"    , "yotam"];
-const passwords = ["77777"  , "55555"   , "12345"];
-const nicknames = ["Adani"  , "Chen"    , "Yotatm"];
-
-// Add a new user to the DB
-function AddUser(username, password) {
-    usernames.push(username.toLowerCase());
-    passwords.push(password);
+function User(username, nickname, password) {
+    this.username = username;
+    this.nickname = nickname;
+    this.password = password;
+    this.chats = new Map();
+    this.lastSeen = "";
 }
 
-// Check if login is valid
+function AddUser(username, nickname, password) {
+    if (UsernameExistsCheck(username)) return <div Username already in use />
+    users.push(new User(username, nickname, password));
+}
+
+// checks if details are valid for login
 function LoginCheck(username, password) {
-    for (var i = 0; i < usernames.length; i++) {
-        if ((username === usernames[i]) && (password === passwords[i])) return i;
-    }
-
-    return -1;
+    if (!(UsernameExistsCheck(username))) return false;
+    let user = users.find(user => user.username === username);
+    return (user.password === password);
 }
 
-// Check if username already exists
+// checks if username exists in DB
 function UsernameExistsCheck(username) {
-    for (var i = 0; i < usernames.length; i++) {
-        if (username === usernames[i]) return true;
-    }
-
-    return false;
+    return (users.find(user => user.username === username)) ? true : false;
 }
 
-export {AddUser, LoginCheck, UsernameExistsCheck}
+// returns current user's nickname
+function GetNickname(username) {
+    if (UsernameExistsCheck(username)) {
+        return users.find(user => user.username === username).nickname;
+    }
+}
+
+function GetChats(user, recepient) {
+
+}
+
+export { AddUser, LoginCheck, UsernameExistsCheck, GetNickname, GetChats }

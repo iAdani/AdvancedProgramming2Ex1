@@ -5,13 +5,14 @@ export default function InputForm({ placeholder, type, id }) {
 
     const [valid, setValid] = useState("");
 
-    const validation = function() {
+    const validation = function () {
         setValid(checkValidation(id))
     }
 
-    return(
-        <div className="form-floating mb-3 hatula">
-            <input onKeyUp={ validation } className={valid + " form-control styledInput" } id={ id } type={ type } placeholder=" " maxLength="12" />
+
+    return (
+        <div className="form-floating mb-3">
+            <input onKeyUp={validation} className={valid + " form-control styledInput"} id={id} type={type} placeholder=" " maxLength="12" />
             <label className="input-label-margin" htmlFor={ id }>{ placeholder }</label>
         </div>
     )
@@ -33,5 +34,5 @@ function checkValidation(id) {
 
     /* --- Register page --- */
 
-    
+
 }
