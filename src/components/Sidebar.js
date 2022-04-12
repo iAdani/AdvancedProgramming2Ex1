@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./Sidebar.css";
 import SidebarChat from "./SidebarChat";
 import { GetLastMessage, GetContacts, GetNickname } from '../DBAdapater';
@@ -8,9 +8,14 @@ function Sidebar(props) {
     var nickname = GetNickname(props.activeUser);
     const contacts = GetContacts(props.activeUser);
 
-    const [search, setSearch] = useState("")
+    const [search, setSearch] = useState("");
     const [filter, setFilter] = useState(contacts);
 
+    useEffect(() => {
+        const filteredContacts = contacts.filter((name) =>
+        GetNickname(name).toLowerCase().includes(search.toLowerCase()));
+        setFilter(filteredContacts)
+    }, [search]);
 
     return (
         <div className="sidebar">
@@ -22,13 +27,17 @@ function Sidebar(props) {
             <div className="sidebar__search">
                 <div className="sidebar__searchContainer">
                     <i class="bi bi-search"></i>
-                    <input placeholder="Search or start new chat" type="text" />
+                    <input
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    placeholder="Search or start new chat"
+                    type="text" />
                 </div>
             </div>
 
             <div className="sidebar__chats">
                 {filter.map((contact) => (
-                    <SidebarChat
+                    <SidebarChat 
                     nickname={GetNickname(contact)} 
                     lastMessage={GetLastMessage(props.activeUser, contact)}/>
                 ))}
