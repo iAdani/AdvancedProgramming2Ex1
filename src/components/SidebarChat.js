@@ -1,7 +1,7 @@
 import React from 'react'
 import './SidebarChat.css'
 
-function SidebarChat() {
+function SidebarChat(props) {
   return (
     <div className="sidebarChat">
         <i class="bi bi-person-circle"></i>
