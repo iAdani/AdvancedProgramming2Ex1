@@ -7,7 +7,7 @@
     box-shadow: 0 1px 0 rgba(31, 38,135,0.37);
     border-radius: 2rem;
     width: 100%;
-    /* border: 1px; */
+    /* border:10px; */
     outline: none;
     backdrop-filter: blur(12rem);
     text-indent:8px;
@@ -21,7 +21,8 @@
     display: inline-block;
     box-shadow: 0 0 0 0.2rem #9e9e9f;
     backdrop-filter: blur(12rem);
-    border-radius: 2rem;
+    /* border-radius: 2rem; */
+    border-color: #9e9e9f;
     /* font-family: 'Open Sans', sans-serif; */
     font-family: 'Poppins', sans-serif;
     text-indent:8px;

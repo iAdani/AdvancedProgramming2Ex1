@@ -8,7 +8,7 @@ function Chat(props) {
         <div className="chat">
             <div className="chat__header">
                 <div className="chat__headerInfo">
-                  <i class="btn bi bi-person-circle"></i>
+                  <i className="btn bi bi-person-circle"></i>
                   <span><p>Contact Name</p><span>Last seen at...</span></span>
                 </div>
             </div>
@@ -28,7 +28,7 @@ function Chat(props) {
             <form>
                 <input placeholder="Type a message" type="text" />
                 <button type="submit">
-                    <i class="bi bi-send"></i>
+                    <i className="bi bi-send"></i>
                 </button>
             </form>
         </div>
