@@ -1,9 +1,13 @@
 // hardcoded DB
-const users = [
+const users = new Map([
     new User("guy", "iAdani", "77777"),
     new User("chen", "Chnana", "55555"),
     new User("yotam", "Yotatm", "12345")
-];
+].map(user => {
+    return [user.username, user]
+}));
+
+users.get("yotam").chats.set("guy", [new Message(true, "3:54pm", "Bitches b strollin")])
 
 function User(username, nickname, password) {
     this.username = username;
@@ -13,32 +17,50 @@ function User(username, nickname, password) {
     this.lastSeen = "";
 }
 
+function Message(received, time, message) {
+    this.received = received;
+    this.time = time;
+    this.message = message;
+}
+// checks if username exists in DB
+function UserExists(username) {
+    return (users.has(username));
+}
+
+// adds user to user pool database
 function AddUser(username, nickname, password) {
-    if (UsernameExistsCheck(username)) return <div Username already in use />
-    users.push(new User(username, nickname, password));
+    let usernameLower = username.toLowerCase()
+    if (UserExists(usernameLower)) return false;
+    users.set(usernameLower, new User(usernameLower, nickname, password));
 }
 
 // checks if details are valid for login
 function LoginCheck(username, password) {
-    if (!(UsernameExistsCheck(username))) return false;
-    let user = users.find(user => user.username === username);
+    if (!UserExists(username)) return false;
+    let user = users.get(username);
     return (user.password === password);
-}
-
-// checks if username exists in DB
-function UsernameExistsCheck(username) {
-    return (users.find(user => user.username === username)) ? true : false;
 }
 
 // returns current user's nickname
 function GetNickname(username) {
-    if (UsernameExistsCheck(username)) {
-        return users.find(user => user.username === username).nickname;
+    if (UserExists(username)) {
+        return users.get(username).nickname;
     }
 }
 
-function GetChats(user, recepient) {
-
+function GetContacts(user) {
+    return (UserExists(user)) ? [...users.get(user).chats.keys()] : false;
 }
 
-export { AddUser, LoginCheck, UsernameExistsCheck, GetNickname, GetChats }
+function GetChats(user, recipient) {
+    return (UserExists(user) && UserExists(recipient)) ? users.get(user).chats.get(recipient) : [];
+}
+
+function GetLastMessage(user, recipient) {
+    if (UserExists(user) && UserExists(recipient)) {    
+        let msg = users.get(user).chats.get(recipient).find(msg => msg.received);
+        return msg.message;
+    }
+}
+
+export { AddUser, LoginCheck, UserExists, GetNickname, GetChats, GetContacts, GetLastMessage }
