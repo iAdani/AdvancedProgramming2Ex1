@@ -6,8 +6,8 @@ function SidebarChat(props) {
     <div className="sidebarChat">
         <i class="bi bi-person-circle"></i>
         <div className="sidebarChat__info">
-            <h2>Contact Name</h2>
-            <p>Last message...</p>
+            <h2>{props.nickname}</h2>
+            <p>{props.lastMessage}</p>
         </div>
     </div>
   )
