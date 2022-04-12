@@ -7,7 +7,7 @@ const users = new Map([
     return [user.username, user]
 }));
 
-users.get("yotam").chats.set("guy", [new Message(true, "3:54pm", "Bitches b strollin")])
+users.get("yotam").chats.set("guy", [new Message(true, "3:54pm", "Bitches b strollin")]).set("chen", [new Message(true, "2:37am", "ma at rotza?!@")])
 
 function User(username, nickname, password) {
     this.username = username;
@@ -18,10 +18,11 @@ function User(username, nickname, password) {
 }
 
 function Message(received, time, message) {
-    this.received = received;
+    this.isReceived = received;
     this.time = time;
     this.message = message;
 }
+
 // checks if username exists in DB
 function UserExists(username) {
     return (users.has(username));
@@ -58,7 +59,7 @@ function GetChats(user, recipient) {
 
 function GetLastMessage(user, recipient) {
     if (UserExists(user) && UserExists(recipient)) {    
-        let msg = users.get(user).chats.get(recipient).find(msg => msg.received);
+        let msg = users.get(user).chats.get(recipient).find(msg => msg.isReceived);
         return msg.message;
     }
 }
