@@ -36,7 +36,7 @@ function Sidebar(props) {
             </div>
 
             <div className="sidebar__chats">
-                {filter.map((contact) => (
+                { filter.map((contact) => (
                     <SidebarChat 
                     setActiveChat={props.setActiveChat}
                     contact={contact}

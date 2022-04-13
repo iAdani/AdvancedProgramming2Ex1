@@ -33,18 +33,17 @@
 }
 
 .goodInput {
-    box-shadow: 0 0 0 0.2rem rgba(0, 255, 0, 0.35) !important;
+    color: rgb(10, 255, 10);
 }
 
 .badInput {
-    /* background: rgba(255, 0, 0, 0.05)  !important; */
-    box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.35) !important;
+    color: rgb(255, 10, 10);
 }
 
 .invalidMessage {
     color: rgb(180, 0, 0);
     height: 2rem;
-    font-weight: bold;
+    /* font-weight: bold; */
     font-family: 'Poppins', sans-serif;
 }
 
@@ -93,7 +92,7 @@
 }
 
 .w-45 {
-    width: 50% !important;
+    width: 55% !important;
     text-align: center;
     justify-content: center;
 }
@@ -121,4 +120,8 @@
 
 .pointer {
     cursor: pointer;
+}
+
+.hide {
+    display: none;
 }
