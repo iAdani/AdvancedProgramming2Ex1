@@ -1,7 +1,7 @@
-import React from 'react'
-// import { useNavigate } from 'react-router-dom'
-import "./Chat.css"
-import AttachButton from './AttachButton'
+import React from "react";
+import "./Chat.css";
+import AttachButton from "./AttachButton";
+import {GetChats} from "../DBAdapater";
 
 function Chat(props) {
     return (
@@ -31,9 +31,12 @@ function Chat(props) {
                     <i className="bi bi-send"></i>
                 </button>
             </form>
+
         </div>
-        </div>
-    )
+      </div>
+
+      
+  );
 }
 
-export default Chat
+export default Chat;
