@@ -1,41 +1,40 @@
-import InputForm from "./InputForm";
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import UsernameInput from "./RegisterInputs/UsernameInput";
+import PasswordInput from "./RegisterInputs/PasswordInput";
+import PassValidInput from "./RegisterInputs/PassValidInput";
+import DisplayInput from "./RegisterInputs/DisplayInput";
 
-export default function RegisterForm() {
-  const Register = function () {
-    var username = document.getElementById("login-username").value;
-    var password = document.getElementById("login-password").value;
+export default function RegisterForm({ setActiveUser }) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [passValid, setPassValid] = useState("");
+  const [nickname, setNickname] = useState("");
+
+  let navigate = useNavigate();
+
+  const Register = function (element) {
+    element.preventDefault();
+    console.log(nickname);
+    if (
+      username !== "" &&
+      password !== "" &&
+      passValid !== "" &&
+      nickname !== ""
+    ) {
+      setActiveUser(username);
+      navigate("/chats");
+    }
   };
 
   return (
     <div className="mainContainer overflow-hidden">
-      <form className="w-45">
+      <form className="w-45" onSubmit={Register}>
         <div className="welcomeText">Register</div>
-        <InputForm id={"register-username"} placeholder={"Username"}>
-          {" "}
-        </InputForm>
-        <InputForm
-          id={"register-password"}
-          type={"password"}
-          placeholder={"Password"}
-        >
-          {" "}
-        </InputForm>
-        <InputForm
-          id={"register-pass-check"}
-          type={"password"}
-          placeholder={"Confirm Password"}
-        >
-          {" "}
-        </InputForm>
-        <InputForm
-          id={"register-display-name"}
-          type={"text"}
-          placeholder={"Display Name"}
-        >
-          {" "}
-        </InputForm>
+        <UsernameInput setter={setUsername} />
+        <PasswordInput setter={setPassword} />
+        <PassValidInput setter={setPassValid} password={password} />
+        <DisplayInput setter={setNickname} />
         <div className="mb-3 styledInput register-image pointer">
           <span className="pointer">
             <input id="register-image" type="file" />
@@ -44,11 +43,7 @@ export default function RegisterForm() {
             <i className="bi bi-cloud-arrow-up"></i> Upload an image
           </label>
         </div>
-        <button
-          onSubmit={Register}
-          className="mainButton w-75 btn"
-          type="submit"
-        >
+        <button className="mainButton w-75 btn" type="submit">
           Register
         </button>
         <div className="mb-3 white-text">

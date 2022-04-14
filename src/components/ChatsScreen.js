@@ -1,23 +1,32 @@
-import { useState, useEffect } from "react";
-import "./ChatsScreen.css";
-import Sidebar from "./Sidebar";
-import Chat from "./Chat";
-import { GetChats } from "../DBAdapater";
+import { useState, useEffect } from 'react'
+import './ChatsScreen.css'
+import Sidebar from './Sidebar';
+import Chat from './Chat'
+import { GetChat } from '../DBAdapater';
 
 export default function ChatsScreen({ activeUser }) {
-  const [activeChat, setActiveChat] = useState("");
-  const chats = new Map();
-  useEffect(() => {
-    chats.set(activeChat, GetChats(activeUser, activeChat));
-  }, [activeChat]);
-  return (
-    <div className="chats__body">
-      <Sidebar
-        activeUser={activeUser}
-        activeChat={activeChat}
-        setActiveChat={setActiveChat}
-      />
-      <Chat chats={chats} activeUser={activeUser} activeChat={activeChat} />
-    </div>
-  );
+
+    const [activeContact, setActiveContact] = useState("");
+    const [curChat, setCurChat] = useState([])
+    const chats = new Map();
+
+    useEffect(() => {
+        if (!chats.has(activeContact)) {
+            chats.set(activeContact, GetChat(activeUser, activeContact))
+        }
+        setCurChat(chats.get(activeContact))
+    }, [activeContact]);
+
+    return (
+        <div className="chats__body">
+            <Sidebar
+                activeUser={activeUser}
+                activeContact={activeContact}
+                setActiveContact={setActiveContact} />
+            <Chat
+                curChat={curChat}
+                activeUser={activeUser}
+                activeContact={activeContact} />
+        </div>
+    );
 }

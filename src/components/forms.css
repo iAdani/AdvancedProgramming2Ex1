@@ -7,7 +7,7 @@
     box-shadow: 0 1px 0 rgba(31, 38,135,0.37);
     border-radius: 2rem;
     width: 100%;
-    /* border: 1px; */
+    /* border:10px; */
     outline: none;
     backdrop-filter: blur(12rem);
     text-indent:8px;
@@ -21,7 +21,8 @@
     display: inline-block;
     box-shadow: 0 0 0 0.2rem #9e9e9f;
     backdrop-filter: blur(12rem);
-    border-radius: 2rem;
+    /* border-radius: 2rem; */
+    border-color: #9e9e9f;
     /* font-family: 'Open Sans', sans-serif; */
     font-family: 'Poppins', sans-serif;
     text-indent:8px;
@@ -32,18 +33,17 @@
 }
 
 .goodInput {
-    box-shadow: 0 0 0 0.2rem rgba(0, 255, 0, 0.35) !important;
+    color: rgb(10, 255, 10);
 }
 
 .badInput {
-    /* background: rgba(255, 0, 0, 0.05)  !important; */
-    box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.35) !important;
+    color: rgb(255, 10, 10);
 }
 
 .invalidMessage {
     color: rgb(180, 0, 0);
     height: 2rem;
-    font-weight: bold;
+    /* font-weight: bold; */
     font-family: 'Poppins', sans-serif;
 }
 
@@ -94,7 +94,7 @@
 }
 
 .w-45 {
-    width: 50% !important;
+    width: 55% !important;
     text-align: center;
     justify-content: center;
 }
@@ -122,4 +122,15 @@
 
 .pointer {
     cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+.align-left {
+    text-align: left;
+    list-style-type: none;
+    margin: 0;
+    padding: 0
 }
