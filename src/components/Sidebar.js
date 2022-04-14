@@ -20,13 +20,13 @@ function Sidebar(props) {
     return (
         <div className="sidebar">
             <div className="sidebar__header">
-                <span><i class="btn bi bi-person-circle"></i>{nickname}</span>
-                <i class="btn bi bi-person-plus"></i>
+                <span><i className="btn bi bi-person-circle"></i>{nickname}</span>
+                <i className="btn bi bi-person-plus"></i>
             </div>
 
             <div className="sidebar__search">
                 <div className="sidebar__searchContainer">
-                    <i class="bi bi-search"></i>
+                    <i className="bi bi-search"></i>
                     <input
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
