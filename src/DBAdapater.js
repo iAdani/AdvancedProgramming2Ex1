@@ -7,7 +7,7 @@ const users = new Map([
     return [user.username, user]
 }));
 
-users.get("yotam").chats.set("guy", [new Message(true, "3:54pm", "Bitches b strollin")]).set("chen", [new Message(true, "2:37am", "ma at rotza?!@")])
+users.get("yotam").chats.set("guy", [new Message(true, "3:54pm", "Bitches b strollin")]).set("yotam", [new Message(true, "2:37am", "ma at rotza?!@")])
 
 function User(username, nickname, password) {
     this.username = username;

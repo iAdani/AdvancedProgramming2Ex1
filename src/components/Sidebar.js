@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
 import SidebarChat from "./SidebarChat";
-import { GetLastMessage, GetContacts, GetNickname } from '../DBAdapater';
-
+import { GetLastMessage, GetContacts, GetNickname } from "../DBAdapater";
+import AddContactButton from "./AddContactButton";
 
 function Sidebar(props) {
     var nickname = GetNickname(props.activeUser);
@@ -13,39 +13,45 @@ function Sidebar(props) {
 
     useEffect(() => {
         const filteredContacts = contacts.filter((name) =>
-        GetNickname(name).toLowerCase().includes(search.toLowerCase()));
-        setFilter(filteredContacts)
+            GetNickname(name).toLowerCase().includes(search.toLowerCase())
+        );
+        setFilter(filteredContacts);
     }, [search]);
 
     return (
         <div className="sidebar">
             <div className="sidebar__header">
-                <span><i class="btn bi bi-person-circle"></i>{nickname}</span>
-                <i class="btn bi bi-person-plus"></i>
+                <span>
+                    <i class="btn bi bi-person-circle"></i>
+                    {nickname}
+                </span>
+                <AddContactButton />
             </div>
 
             <div className="sidebar__search">
                 <div className="sidebar__searchContainer">
                     <i class="bi bi-search"></i>
                     <input
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    placeholder="Search or start new chat"
-                    type="text" />
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                        placeholder="Search or start new chat"
+                        type="text"
+                    />
                 </div>
             </div>
 
             <div className="sidebar__chats">
                 {filter.map((contact) => (
-                    <SidebarChat 
-                    setActiveChat={props.setActiveChat}
-                    contact={contact}
-                    nickname={GetNickname(contact)} 
-                    lastMessage={GetLastMessage(props.activeUser, contact)}/>
+                    <SidebarChat
+                        setActiveChat={props.setActiveChat}
+                        contact={contact}
+                        nickname={GetNickname(contact)}
+                        lastMessage={GetLastMessage(props.activeUser, contact)}
+                    />
                 ))}
             </div>
         </div>
-    )
+    );
 }
 
-export default Sidebar
+export default Sidebar;

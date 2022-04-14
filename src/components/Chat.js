@@ -1,7 +1,8 @@
 import React from "react";
 import "./Chat.css";
 import AttachButton from "./AttachButton";
-import {GetChats} from "../DBAdapater";
+import { GetChats } from "../DBAdapater";
+import SendButton from "./SendButton";
 
 function Chat(props) {
   return (
@@ -28,9 +29,10 @@ function Chat(props) {
         <AttachButton />
         <form>
           <input placeholder="Type a message" type="text" />
-          <button type="button">
+          {/* <button type="button">
             <i class="bi bi-send"></i>
-          </button>
+          </button> */}
+          <SendButton />
         </form>
       </div>
     </div>
