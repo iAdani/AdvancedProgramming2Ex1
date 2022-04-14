@@ -1,38 +1,14 @@
-import { useState } from "react";
+import { useRef } from "react"
 
 
-export default function InputForm({ placeholder, type, id }) {
+export default function InputForm({ placeholder, type, id, setter }) {
 
-    const [valid, setValid] = useState("");
-
-    const validation = function () {
-        setValid(checkValidation(id))
-    }
-
-
+    const target = useRef("");
+    
     return (
         <div className="form-floating mb-3">
-            <input onKeyUp={validation} className={valid + " form-control styledInput"} id={id} type={type} placeholder=" " maxLength="12" />
-            <label className="input-label-margin" htmlFor={ id }>{ placeholder }</label>
+            <input onKeyUp={() => {setter(target.current.value);}} ref={target} className={"form-control styledInput"} id={id} type={type} placeholder=" " maxLength="12"/>
+            <label className="input-label-margin" htmlFor={id}>{placeholder}</label>
         </div>
     )
-}
-
-function checkValidation(id) {
-    var input = document.getElementById(id).value;
-
-    /* --- Sign in page --- */
-    // if(id === "login-username"){
-    //     if (input !== "") {return "goodInput"};
-    //     return "";
-    // }
-
-    // if(id === "login-password"){
-    //     if (input !== "") {return "goodInput"};
-    //     return "";
-    // }
-
-    /* --- Register page --- */
-
-
 }
