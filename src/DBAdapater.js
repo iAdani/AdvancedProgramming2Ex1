@@ -6,7 +6,7 @@ const users = new Map([
 ].map(user => {
     return [user.username, user]
 }));
-users.get("chen").lastSeen=["today", " 3:12pm"]
+users.get("chen").lastSeen = ["today", " 3:12pm"]
 users.get("yotam").chats.set("chen", [new Message(false, "3:54pm", "Bitches b strollin"), new Message(true, "5:01pm", "ma at rotza?!@")])
 
 function User(username, nickname, password) {
@@ -66,11 +66,31 @@ function GetLastMessage(user, recipient) {
 
 function GetLastSeen(user) {
     if (UserExists(user)) {
-    //     var curTime = users.get(user).lastSeen;
-    //     return [curTime.getDate(), curTime.toTimeString()];
-    // }
-    return users.get(user).lastSeen;
+        //     var curTime = users.get(user).lastSeen;
+        //     return [curTime.getDate(), curTime.toTimeString()];
+        // }
+        return users.get(user).lastSeen;
     }
+}
+
+function send() {
+    {/* to be updated*/ }
+}
+
+function sendMessage(message) {
+    {/* to be updated*/ }
+}
+
+function sendImage(link) {
+    {/* to be updated*/ }
+}
+
+function sendVideo(link) {
+    {/* to be updated*/ }
+}
+
+function sendVoiceMsg(link) {
+    {/* to be updated*/ }
 }
 
 export { AddUser, LoginCheck, UserExists, GetNickname, GetChat, GetContacts, GetLastMessage, GetLastSeen }
