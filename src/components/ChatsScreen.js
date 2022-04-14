@@ -2,27 +2,31 @@ import { useState, useEffect } from 'react'
 import './ChatsScreen.css'
 import Sidebar from './Sidebar';
 import Chat from './Chat'
-import { GetChats } from '../DBAdapater';
+import { GetChat } from '../DBAdapater';
 
 export default function ChatsScreen({ activeUser }) {
 
-    const [activeChat, setActiveChat] = useState("");
+    const [activeContact, setActiveContact] = useState("");
+    const [curChat, setCurChat] = useState([])
     const chats = new Map();
 
     useEffect(() => {
-        chats.set(activeChat, GetChats(activeUser, activeChat))
-    }, [activeChat]);
+        if (!chats.has(activeContact)) {
+            chats.set(activeContact, GetChat(activeUser, activeContact))
+        }
+        setCurChat(chats.get(activeContact))
+    }, [activeContact]);
 
     return (
         <div className="chats__body">
             <Sidebar
                 activeUser={activeUser}
-                activeChat={activeChat}
-                setActiveChat={setActiveChat} />
+                activeContact={activeContact}
+                setActiveContact={setActiveContact} />
             <Chat
-                chat={chats.get(activeChat)}
+                curChat={curChat}
                 activeUser={activeUser}
-                activeChat={activeChat} />
+                activeContact={activeContact} />
         </div>
     );
 }

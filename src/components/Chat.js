@@ -1,51 +1,47 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Chat.css";
 import AttachButton from "./AttachButton";
 import { GetNickname, GetLastSeen } from "../DBAdapater";
 
 function Chat(props) {
-  let date, time = GetLastSeen(props.activeChat)
+  var chat = props.curChat;
+
   return (
     <div className="chat">
       <div className="chat__header">
         <div className="chat__headerInfo">
-          <i class="btn bi bi-person-circle"></i>
+          <i className="btn bi bi-person-circle"></i>
           <span>
-            <p>{GetNickname(props.activeChat)}</p>
-            <span>Last seen on...</span>
+            <p>
+              {GetNickname(props.activeContact)}
+            </p>
+            <span>
+              {GetLastSeen(props.activeContact)}
+            </span>
           </span>
         </div>
       </div>
+
       <div className="chat__body">
-        <Message
-          msg={{ message: "potato", time: "now" }}
-        />
+        {chat.map((msg) => (
+          <p className={`chat__message ${msg.activeUserSent && "chat__reciever"}`}>
+            {msg.message}
+            <span className="chat__timestamp">{msg.time}</span>
+          </p>
+        ))}
       </div>
 
       <div className="chat__footer">
         <AttachButton />
         <form>
           <input placeholder="Type a message" type="text" />
-          <button
-            type="button"
-            background="none"
-          >
-            <i
-              class="bi bi-send" />
+          <button type="submit">
+            <i className="bi bi-send"></i>
           </button>
         </form>
       </div>
     </div>
   );
-}
-
-function Message({ msg }) {
-  return (
-    <p className={`chat__message ${true && "chat__reciever"}`}>
-      {msg.message}
-      <span className="chat__timestamp">{msg.time}</span>
-    </p>
-  )
 }
 
 export default Chat;

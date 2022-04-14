@@ -15,7 +15,7 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<MainScreen />}></Route>
                 <Route path="/login" element={<LoginForm setActiveUser={setActiveUser} />}></Route>
-                <Route path="/register" element={<RegisterForm />}> </Route>
+                <Route path="/register" element={<RegisterForm setActiveUser={setActiveUser} />}> </Route>
                 <Route path="/chats" element={<ChatsScreen activeUser={activeUser} />}></Route>
             </Routes>
         </BrowserRouter>
