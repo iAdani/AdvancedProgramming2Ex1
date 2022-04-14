@@ -6,19 +6,19 @@ const users = new Map([
 ].map(user => {
     return [user.username, user]
 }));
-
-users.get("yotam").chats.set("guy", [new Message(true, "3:54pm", "Bitches b strollin")]).set("chen", [new Message(true, "2:37am", "ma at rotza?!@")])
+users.get("chen").lastSeen=["today", " 3:12pm"]
+users.get("yotam").chats.set("chen", [new Message(false, "3:54pm", "Bitches b strollin"), new Message(true, "5:01pm", "ma at rotza?!@")])
 
 function User(username, nickname, password) {
     this.username = username;
     this.nickname = nickname;
     this.password = password;
     this.chats = new Map();
-    this.lastSeen = new Date();
+    this.lastSeen = ["today", " 4:43pm"];
 }
 
-function Message(received, time, message) {
-    this.isReceived = received;
+function Message(activeUserSent, time, message) {
+    this.activeUserSent = activeUserSent;
     this.time = time;
     this.message = message;
 }
@@ -53,22 +53,24 @@ function GetContacts(user) {
     return (UserExists(user)) ? [...users.get(user).chats.keys()] : false;
 }
 
-function GetChats(user, recipient) {
+function GetChat(user, recipient) {
     return (UserExists(user) && UserExists(recipient)) ? users.get(user).chats.get(recipient) : [];
 }
 
 function GetLastMessage(user, recipient) {
     if (UserExists(user) && UserExists(recipient)) {
-        let msg = users.get(user).chats.get(recipient).find(msg => msg.isReceived);
+        let msg = users.get(user).chats.get(recipient).find(msg => msg.activeUserSent);
         return msg.message;
     }
 }
 
 function GetLastSeen(user) {
     if (UserExists(user)) {
-        var curTime = users.get(user).lastSeen;
-        return [curTime.getDate(), curTime.toTimeString()];
+    //     var curTime = users.get(user).lastSeen;
+    //     return [curTime.getDate(), curTime.toTimeString()];
+    // }
+    return users.get(user).lastSeen;
     }
 }
 
-export { AddUser, LoginCheck, UserExists, GetNickname, GetChats, GetContacts, GetLastMessage, GetLastSeen }
+export { AddUser, LoginCheck, UserExists, GetNickname, GetChat, GetContacts, GetLastMessage, GetLastSeen }
