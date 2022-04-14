@@ -107,7 +107,7 @@ export default function ({ setter }) {
                 {(props) => (
                     <Tooltip {...props}>
                         <ul className="align-left">
-                            <li>Please include:</li>
+                            <li>Choose you password.<br/>Please include:</li>
                             <li id="passwordli1" className={validli1}>{li1}</li>
                             <li id="passwordli2" className={validli2}>{li2}</li>
                             <li id="passwordli3" className={validli3}>{li3}</li>
