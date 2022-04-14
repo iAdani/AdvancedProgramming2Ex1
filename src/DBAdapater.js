@@ -14,7 +14,7 @@ function User(username, nickname, password) {
     this.nickname = nickname;
     this.password = password;
     this.chats = new Map();
-    this.lastSeen = "";
+    this.lastSeen = new Date();
 }
 
 function Message(received, time, message) {
@@ -58,10 +58,17 @@ function GetChats(user, recipient) {
 }
 
 function GetLastMessage(user, recipient) {
-    if (UserExists(user) && UserExists(recipient)) {    
+    if (UserExists(user) && UserExists(recipient)) {
         let msg = users.get(user).chats.get(recipient).find(msg => msg.isReceived);
         return msg.message;
     }
 }
 
-export { AddUser, LoginCheck, UserExists, GetNickname, GetChats, GetContacts, GetLastMessage }
+function GetLastSeen(user) {
+    if (UserExists(user)) {
+        var curTime = users.get(user).lastSeen;
+        return [curTime.getDate(), curTime.toTimeString()];
+    }
+}
+
+export { AddUser, LoginCheck, UserExists, GetNickname, GetChats, GetContacts, GetLastMessage, GetLastSeen }

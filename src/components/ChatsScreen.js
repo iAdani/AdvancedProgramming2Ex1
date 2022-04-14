@@ -5,10 +5,14 @@ import Chat from './Chat'
 import { GetChats } from '../DBAdapater';
 
 export default function ChatsScreen({ activeUser }) {
+
     const [activeChat, setActiveChat] = useState("");
     const chats = new Map();
-    useEffect(() => {chats.set(activeChat,GetChats(activeUser,activeChat))
+
+    useEffect(() => {
+        chats.set(activeChat, GetChats(activeUser, activeChat))
     }, [activeChat]);
+
     return (
         <div className="chats__body">
             <Sidebar
@@ -16,7 +20,7 @@ export default function ChatsScreen({ activeUser }) {
                 activeChat={activeChat}
                 setActiveChat={setActiveChat} />
             <Chat
-                chats={chats}
+                chat={chats.get(activeChat)}
                 activeUser={activeUser}
                 activeChat={activeChat} />
         </div>
