@@ -4,6 +4,7 @@ import {Link, useNavigate} from "react-router-dom";
 import VerficationBox from "./VerficationBox";
 import UsernameInput from "./RegisterInputs/UsernameInput";
 import PasswordInput from "./RegisterInputs/PasswordInput";
+import PassValidInput from "./RegisterInputs/PassValidInput";
 
 export default function RegisterForm({ setActiveUser }) {
     const [username, setUsername] = useState('');
@@ -27,9 +28,10 @@ export default function RegisterForm({ setActiveUser }) {
         <div className="mainContainer overflow-hidden">
             <form className="w-45" onSubmit={Register}>
                 <div className="welcomeText">Register</div>
-                <UsernameInput setter={ (e) => {setUsername(e) }} />
+                <UsernameInput setter={ setUsername } />
                 <PasswordInput setter={ setPassword } />
-                <InputForm id={ "register-pass-check" } type={ "password" } placeholder={ "Confirm Password" } setter={(e) => { setPassValid(e) }}/> 
+                {/* <InputForm id={ "register-pass-check" } type={ "password" } placeholder={ "Confirm Password" } setter={(e) => { setPassValid(e) }}/>  */}
+                <PassValidInput setter={ setPassValid } password={password} />
                 <InputForm id={ "register-display-name" } type={ "text" } placeholder={ "Display Name" } setter={ (e) => { setNickname(e) }}/>
                 <div className="mb-3 styledInput register-image pointer">
                     <span className="pointer"><input id="register-image" type="file"/></span>
