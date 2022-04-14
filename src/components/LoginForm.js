@@ -5,6 +5,9 @@ import './MainContainer.css';
 import './forms.css';
 import { LoginCheck } from "../DBAdapater"
 
+// export default function LoginForm({ setActiveUser }) {
+//   let navigate = useNavigate();
+//   const [invalidMessage, setInvalidMessage] = useState("");
 
 export default function LoginForm({ setActiveUser }) {
 
@@ -38,5 +41,5 @@ export default function LoginForm({ setActiveUser }) {
                 <div className="mb-3 white-text">Not registered? <Link to="/register">Register</Link>.</div>
             </form>
         </div>
-    )
+  );
 }
