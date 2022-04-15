@@ -42,30 +42,17 @@ export default function RegisterForm({ setActiveUser }) {
             $('#registerContainer').addClass('red-border');
             setTimeout(() => { $('#registerContainer').removeClass('red-border'); }, 4500);
         }
-
-  const Register = function (element) {
-    element.preventDefault();
-    console.log(nickname);
-    if (
-      username !== "" &&
-      password !== "" &&
-      passValid !== "" &&
-      nickname !== ""
-    ) {
-      setActiveUser(username);
-      navigate("/chats");
     }
-  };
 
     // Used for submit button overlay
     const poppy = () => {
         if ($('#registerSubmit').is(':disabled')) {
-            setSubmitOverlayText(<span className="badInput"><i className="bi bi-x-lg"></i> All fields must be valid!</span>);
+            setSubmitOverlayText(<span className="badInput"><i className="bi bi-x-lg"></i> All fields must be satisfied before submitting.</span>);
         } else {
             setSubmitOverlayText(<span className="goodInput"><i className="bi bi-check-lg"></i> Good to go!</span>);
         }
         setShow(!show);
-    }
+    };
 
     return (
         <div id='registerContainer' className="mainContainer overflow-hidden">
@@ -90,7 +77,5 @@ export default function RegisterForm({ setActiveUser }) {
                 <div className="mb-3 white-text">Already registered? <Link to="/login">Sign in</Link>.</div>
             </form>
         </div>
-      </form>
-    </div>
   );
 }
