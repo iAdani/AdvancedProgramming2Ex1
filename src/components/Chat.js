@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./Chat.css";
 import AttachButton from "./AttachButton";
 import { GetNickname, GetLastSeen } from "../DBAdapater";
+import SendButton from "./SendButton";
 
 function Chat(props) {
   var chat = props.curChat;
@@ -35,9 +36,7 @@ function Chat(props) {
         <AttachButton />
         <form>
           <input placeholder="Type a message" type="text" />
-          <button type="submit">
-            <i className="bi bi-send"></i>
-          </button>
+          <SendButton />
         </form>
       </div>
     </div>

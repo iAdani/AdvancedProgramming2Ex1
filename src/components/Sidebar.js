@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
 import SidebarChat from "./SidebarChat";
-import { GetLastMessage, GetContacts, GetNickname } from '../DBAdapater';
-
+import { GetLastMessage, GetContacts, GetNickname } from "../DBAdapater";
+import AddContactButton from "./AddContactButton";
 
 function Sidebar(props) {
     var nickname = GetNickname(props.activeUser);
@@ -21,7 +21,7 @@ function Sidebar(props) {
         <div className="sidebar">
             <div className="sidebar__header">
                 <span><i className="btn bi bi-person-circle"></i>{nickname}</span>
-                <i className="btn bi bi-person-plus"></i>
+                <AddContactButton />
             </div>
 
             <div className="sidebar__search">
@@ -45,7 +45,7 @@ function Sidebar(props) {
                 ))}
             </div>
         </div>
-    )
+    );
 }
 
-export default Sidebar
+export default Sidebar;

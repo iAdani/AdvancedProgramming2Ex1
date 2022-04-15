@@ -9,6 +9,7 @@ import $ from 'jquery';
 import { Overlay, Tooltip } from "react-bootstrap";
 
 export default function RegisterForm({ setActiveUser }) {
+  
     //used for registration
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -42,7 +43,19 @@ export default function RegisterForm({ setActiveUser }) {
             setTimeout(() => { $('#registerContainer').removeClass('red-border'); }, 4500);
         }
 
+  const Register = function (element) {
+    element.preventDefault();
+    console.log(nickname);
+    if (
+      username !== "" &&
+      password !== "" &&
+      passValid !== "" &&
+      nickname !== ""
+    ) {
+      setActiveUser(username);
+      navigate("/chats");
     }
+  };
 
     // Used for submit button overlay
     const poppy = () => {
@@ -77,5 +90,7 @@ export default function RegisterForm({ setActiveUser }) {
                 <div className="mb-3 white-text">Already registered? <Link to="/login">Sign in</Link>.</div>
             </form>
         </div>
-    )
+      </form>
+    </div>
+  );
 }

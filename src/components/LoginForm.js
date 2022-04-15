@@ -6,6 +6,7 @@ import './forms.css';
 import { LoginCheck } from "../DBAdapater";
 import $ from 'jquery';
 
+
 export default function LoginForm({ setActiveUser }) {
 
     let navigate = useNavigate();
@@ -66,5 +67,5 @@ export default function LoginForm({ setActiveUser }) {
                 <div className="mb-3 white-text">Not registered? <Link to="/register">Register</Link>.</div>
             </form>
         </div>
-    )
+  );
 }
