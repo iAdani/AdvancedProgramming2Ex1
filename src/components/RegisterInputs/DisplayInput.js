@@ -26,7 +26,7 @@ export default function DisplayInput ({ setter }) {
     function validate() {
         let val = target.current.value;
 
-        if (val.match(/^[A-Za-z ]*$/)) {
+        if (val.match(/^[A-Za-z ._]*$/)) {
             setli2(<span><i className="bi bi-check-lg"></i> Only permitted chars</span>)
             setValidli2('goodInput');
             f2 = true;
@@ -67,7 +67,7 @@ export default function DisplayInput ({ setter }) {
                 {(props) => (
                     <Tooltip {...props}>
                         <ul className="align-left">
-                            <li>You can use letters, numbers, spaces, points and underscores.<br/> Please include:</li>
+                            <li>You can use letters, spaces, points and underscores.<br/> Please include:</li>
                             <li id="usernameli1" className={validli1}>{li1}</li>
                             <li id="usernameli2" className={validli2}>{li2}</li>
                         </ul>

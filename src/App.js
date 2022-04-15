@@ -8,8 +8,8 @@ import MainScreen from "./components/MainScreen";
 import ChatsScreen from './components/ChatsScreen';
 
 export default function App() {
-    // creates an active user and a setter using useState to share across components.
-    const [activeUser, setActiveUser] = useState("");
+    // Creates an active user and a setter using useState to share across paths.
+    const [activeUser, setActiveUser] = useState('');
     return (
         <BrowserRouter>
             <Routes>
