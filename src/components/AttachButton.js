@@ -1,6 +1,6 @@
-import React from 'react'
-import { NavDropdown } from 'react-bootstrap';
-import { useState } from 'react';
+import React from "react";
+import { NavDropdown } from "react-bootstrap";
+import { useState } from "react";
 import "./AttachButton.css";
 
 function AttachButton() {
@@ -36,4 +36,4 @@ function AttachButton() {
     )
 }
 
-export default AttachButton
+export default AttachButton;
