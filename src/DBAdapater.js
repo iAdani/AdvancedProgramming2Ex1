@@ -1,6 +1,6 @@
 // hardcoded DB
 const users = new Map([
-    new User("guy", "iAdani", "77777"),
+    new User("guy", "הומו", "77777"),
     new User("chen", "Chnana", "55555"),
     new User("yotam", "Yotatm", "12345")
 ].map(user => {
@@ -8,6 +8,7 @@ const users = new Map([
 }));
 users.get("chen").lastSeen = ["today", " 3:12pm"]
 users.get("yotam").chats.set("chen", [new Message(false, "3:54pm", "Bitches b strollin"), new Message(true, "5:01pm", "ma at rotza?!@")])
+users.get("yotam").chats.set("guy", [new Message(false, "3:54pm", "Bitches b strollin"), new Message(true, "5:01pm", "חתולה מיוחמת")])
 
 function User(username, nickname, password) {
     this.username = username;
@@ -73,24 +74,5 @@ function GetLastSeen(user) {
     }
 }
 
-function send() {
-    {/* to be updated*/ }
-}
-
-function sendMessage(message) {
-    {/* to be updated*/ }
-}
-
-function sendImage(link) {
-    {/* to be updated*/ }
-}
-
-function sendVideo(link) {
-    {/* to be updated*/ }
-}
-
-function sendVoiceMsg(link) {
-    {/* to be updated*/ }
-}
 
 export { AddUser, LoginCheck, UserExists, GetNickname, GetChat, GetContacts, GetLastMessage, GetLastSeen }
