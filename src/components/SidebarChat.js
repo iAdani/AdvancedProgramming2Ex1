@@ -3,7 +3,7 @@ import "./SidebarChat.css";
 
 function SidebarChat(props) {
   return (
-    <div className="sidebarChat" onClick={() => {props.setActiveContact(props.contact); console.log("hi")}}>
+    <div className="sidebarChat" onClick={() => props.setActiveContact(props.contact.toLowerCase())}>
         <i class="bi bi-person-circle"></i>
         <div className="sidebarChat__info">
           <h2>{props.nickname}</h2>

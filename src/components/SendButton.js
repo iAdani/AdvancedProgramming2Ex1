@@ -1,9 +1,9 @@
 import React from "react";
 import "./SendButton.css";
 
-function SendButton() {
+function SendButton(props) {
   return (
-    <button>
+    <button type="submit" onClick={() => props.sendMessage(props.message)}>
       <div class="svg-wrapper-1">
         <div class="svg-wrapper">
           <svg

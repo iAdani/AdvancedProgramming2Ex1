@@ -1,11 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import "./Chat.css";
 import AttachButton from "./AttachButton";
-import { GetNickname, GetLastSeen } from "../DBAdapater";
+import { GetNickname, GetLastSeen, Message } from "../DBAdapater";
 import SendButton from "./SendButton";
 
 function Chat(props) {
-  var chat = props.curChat;
+  const [messageInput, setMessageInput] = useState("");
+
+  const sendMessage = (e) => {
+    const newMsg = new Message(true, Date(), e);
+    props.curChat.push(newMsg);
+    setMessageInput("");
+  };
 
   return (
     <div className="chat">
@@ -13,30 +19,39 @@ function Chat(props) {
         <div className="chat__headerInfo">
           <i className="btn bi bi-person-circle"></i>
           <span>
-            <p>
-              {GetNickname(props.activeContact)}
-            </p>
-            <span>
-              {GetLastSeen(props.activeContact)}
-            </span>
+            <p>{GetNickname(props.curContact)}</p>
+            <span>{GetLastSeen(props.curContact)}</span>
           </span>
         </div>
       </div>
 
       <div className="chat__body">
-        {chat.map((msg) => (
-          <p className={`chat__message ${msg.activeUserSent && "chat__reciever"}`}>
+        {props.curChat.map((msg) => (
+          <p
+            className={`chat__message ${
+              msg.activeUserSent && "chat__reciever"
+            }`}
+            key={msg.time}
+          >
             {msg.message}
-            <span className="chat__timestamp">{msg.time}</span>
+            <span className="chat__timestamp">{msg?.time} </span>
           </p>
         ))}
       </div>
 
-      <div className="chat__footer">
+      <div className={"chat__footer"}>
         <AttachButton />
         <form>
-          <input placeholder="Type a message" type="text" />
-          <SendButton />
+          <input
+            value={messageInput}
+            onChange={(e) => setMessageInput(e.target.value)}
+            placeholder="Type a message..."
+            type="text"
+          />
+          <SendButton
+            sendMessage={sendMessage}
+            message={messageInput}
+          ></SendButton>
         </form>
       </div>
     </div>
