@@ -3,15 +3,27 @@ import "./Chat.css";
 import AttachButton from "./AttachButton";
 import { GetNickname, GetLastSeen, Message } from "../DBAdapater";
 import SendButton from "./SendButton";
+import $ from 'jquery';
 
 function Chat(props) {
   const [messageInput, setMessageInput] = useState("");
 
   const sendMessage = (e) => {
-    const newMsg = new Message(true, Date(), e);
+    const d = new Date();
+    const newMsg = new Message(true, String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0'), e);
     props.curChat.push(newMsg);
     setMessageInput("");
   };
+
+  const submitMessage = (e) => {
+    e.preventDefault();
+    if (messageInput !== '') {
+      sendMessage(messageInput);
+      $('#chatBody').scrollTop(0);
+    }
+  }
+
+  let k = 1; // Unique key for messages
 
   return (
     <div className="chat">
@@ -25,23 +37,22 @@ function Chat(props) {
         </div>
       </div>
 
-      <div className="chat__body">
+      <div id='chatBody' className="chat__body">
         {props.curChat.map((msg) => (
           <p
-            className={`chat__message ${
-              msg.activeUserSent && "chat__reciever"
-            }`}
-            key={msg.time}
+            className={`chat__message ${msg.activeUserSent && "chat__reciever"
+              }`}
+            key={k++}
           >
             {msg.message}
             <span className="chat__timestamp">{msg?.time} </span>
           </p>
-        ))}
+        )).reverse()}
       </div>
 
       <div className={"chat__footer"}>
         <AttachButton />
-        <form>
+        <form onSubmit={submitMessage}>
           <input
             value={messageInput}
             onChange={(e) => setMessageInput(e.target.value)}

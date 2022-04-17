@@ -43,9 +43,10 @@ function UserExists(username) {
 
 // adds user to user pool database
 function AddUser(username, nickname, password) {
-  // let usernameLower = username.toLowerCase()
-  // if (UserExists(usernameLower)) return false;
-  // users.set(usernameLower, new User(usernameLower, nickname, password));
+  let usernameLower = username.toLowerCase()
+  if (UserExists(usernameLower)) return;
+  users.set(usernameLower, new User(usernameLower, nickname, password));
+  console.log(users)
 }
 
 // checks if details are valid for login
@@ -83,12 +84,7 @@ function GetLastMessage(user, recipient) {
 }
 
 function GetLastSeen(user) {
-  if (UserExists(user)) {
-    //     var curTime = users.get(user).lastSeen;
-    //     return [curTime.getDate(), curTime.toTimeString()];
-    // }
-    return users.get(user).lastSeen;
-  }
+  return UserExists(user) ? users.get(user).lastSeen : '';
 }
 
 export {
