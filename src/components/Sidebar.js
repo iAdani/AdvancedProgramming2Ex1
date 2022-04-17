@@ -22,6 +22,7 @@ function Sidebar(props) {
       <div className="sidebar__header">
         <span>
           <i className="btn bi bi-person-circle"></i>
+          <span>{GetNickname(props.activeUser)}</span>
         </span>
         <AddContactButton />
       </div>
@@ -45,6 +46,7 @@ function Sidebar(props) {
             contact={contact}
             nickname={GetNickname(contact)}
             lastMessage={GetLastMessage(props.activeUser, contact)}
+            key={contact}
           />
         ))}
       </div>

@@ -6,53 +6,53 @@ function AddContactButton() {
     <div>
       <button
         type="button"
-        class="btn"
+        className="btn"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >
-        <i class="bi bi-person-plus"></i>
+        <i className="bi bi-person-plus"></i>
       </button>
 
       <div
-        class="modal fade"
+        className="modal fade"
         id="exampleModal"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">
                 Add new contact
               </h5>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">
-              <div class="form-floating mb-3">
+            <div className="modal-body">
+              <div className="form-floating mb-3">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="floatingInput"
                   placeholder="Contact's username"
                 />
-                <label for="floatingInput">Contact's username</label>
+                <label htmlFor="floatingInput">Contact's username</label>
               </div>
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
+                className="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
                 Cancel
               </button>
-              <button type="button" class="btn btn-primary">
+              <button type="button" className="btn btn-primary">
                 Add
               </button>
             </div>
