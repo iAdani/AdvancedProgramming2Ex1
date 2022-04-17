@@ -62,7 +62,13 @@ p {
    background-repeat: repeat;
    background-position: center;
    padding: 30px;
-   overflow: auto;
+   overflow-y: scroll;
+   flex-direction: column-reverse;
+   display: flex;
+}
+
+.chat__body::-webkit-scrollbar {
+    display: none;
 }
 
 .chat__footer {

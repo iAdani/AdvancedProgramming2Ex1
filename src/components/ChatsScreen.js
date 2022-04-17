@@ -26,7 +26,7 @@ export default function ChatsScreen({ activeUser }) {
             <Chat
                 curChat={curChat}
                 activeUser={activeUser}
-                activeContact={activeContact} />
+                curContact={activeContact} />
         </div>
     );
 }

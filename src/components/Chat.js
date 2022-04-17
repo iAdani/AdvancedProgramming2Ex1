@@ -1,11 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import "./Chat.css";
 import AttachButton from "./AttachButton";
-import { GetNickname, GetLastSeen } from "../DBAdapater";
+import { GetNickname, GetLastSeen, Message } from "../DBAdapater";
 import SendButton from "./SendButton";
+import $ from 'jquery';
 
 function Chat(props) {
-  var chat = props.curChat;
+  const [messageInput, setMessageInput] = useState("");
+
+  const sendMessage = (e) => {
+    const d = new Date();
+    const newMsg = new Message(true, String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0'), e);
+    props.curChat.push(newMsg);
+    setMessageInput("");
+  };
+
+  const submitMessage = (e) => {
+    e.preventDefault();
+    if (messageInput !== '') {
+      sendMessage(messageInput);
+      $('#chatBody').scrollTop(0);
+    }
+  }
+
+  let k = 1; // Unique key for messages
 
   return (
     <div className="chat">
@@ -13,30 +31,38 @@ function Chat(props) {
         <div className="chat__headerInfo">
           <i className="btn bi bi-person-circle"></i>
           <span>
-            <p>
-              {GetNickname(props.activeContact)}
-            </p>
-            <span>
-              {GetLastSeen(props.activeContact)}
-            </span>
+            <p>{GetNickname(props.curContact)}</p>
+            <span>{GetLastSeen(props.curContact)}</span>
           </span>
         </div>
       </div>
 
-      <div className="chat__body">
-        {chat.map((msg) => (
-          <p className={`chat__message ${msg.activeUserSent && "chat__reciever"}`}>
+      <div id='chatBody' className="chat__body">
+        {props.curChat.map((msg) => (
+          <p
+            className={`chat__message ${msg.activeUserSent && "chat__reciever"
+              }`}
+            key={k++}
+          >
             {msg.message}
-            <span className="chat__timestamp">{msg.time}</span>
+            <span className="chat__timestamp">{msg?.time} </span>
           </p>
-        ))}
+        )).reverse()}
       </div>
 
-      <div className="chat__footer">
+      <div className={"chat__footer"}>
         <AttachButton />
-        <form>
-          <input placeholder="Type a message" type="text" />
-          <SendButton />
+        <form onSubmit={submitMessage}>
+          <input
+            value={messageInput}
+            onChange={(e) => setMessageInput(e.target.value)}
+            placeholder="Type a message..."
+            type="text"
+          />
+          <SendButton
+            sendMessage={sendMessage}
+            message={messageInput}
+          ></SendButton>
         </form>
       </div>
     </div>
