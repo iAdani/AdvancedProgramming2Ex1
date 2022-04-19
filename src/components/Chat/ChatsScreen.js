@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import "./ChatsScreen.css";
 import Sidebar from "./Sidebar";
 import Chat from "./Chat";
-import { GetChat } from "../DBAdapater";
+import { GetChat } from "../../DBAdapater";
+import NotLogged from "../Forms/NotLogged";
 
 export default function ChatsScreen({ activeUser }) {
+
   const [activeContact, setActiveContact] = useState("");
   const [curChat, setCurChat] = useState([]);
   const chats = new Map();
@@ -22,6 +24,10 @@ export default function ChatsScreen({ activeUser }) {
         }
         setCurChat(chats.get(activeContact))
     }, [activeContact]);
+
+    if (activeUser === '') {
+      return <NotLogged />;
+    }
 
     return (
         <div className="chats__body">

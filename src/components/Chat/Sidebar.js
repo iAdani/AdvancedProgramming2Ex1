@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
 import SidebarChat from "./SidebarChat";
-import { GetLastMessage, GetContacts, GetNickname } from "../DBAdapater";
+import { GetLastMessage, GetContacts, GetNickname } from "../../DBAdapater";
 import AddContactButton from "./AddContactButton";
 
 function Sidebar(props) {

@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { Overlay, Tooltip } from "react-bootstrap";
-import { UserExists } from "../../DBAdapater";
+import { UserExists } from "../../../DBAdapater";
 
 
 export default function UsernameInput ({ setter }) {
