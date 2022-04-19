@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import "./ChatsScreen.css";
 import Sidebar from "./Sidebar";
 import Chat from "./Chat";
-import { GetChat } from "../DBAdapater";
-import NotLogged from "./NotLogged";
+import { GetChat } from "../../DBAdapater";
+import NotLogged from "../Forms/NotLogged";
 
 export default function ChatsScreen({ activeUser }) {
 

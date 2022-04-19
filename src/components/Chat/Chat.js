@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Chat.css";
 import AttachButton from "./AttachButton";
-import { GetNickname, GetLastSeen, Message } from "../DBAdapater";
+import { GetNickname, GetLastSeen, Message } from "../../DBAdapater";
 import SendButton from "./SendButton";
 import $ from 'jquery';
 import LogoutButton from "./LogoutButton";

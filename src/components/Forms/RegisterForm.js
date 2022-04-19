@@ -4,7 +4,7 @@ import UsernameInput from "./RegisterInputs/UsernameInput";
 import PasswordInput from "./RegisterInputs/PasswordInput";
 import PassValidInput from "./RegisterInputs/PassValidInput";
 import DisplayInput from "./RegisterInputs/DisplayInput";
-import { AddUser } from "../DBAdapater";
+import { AddUser } from "../../DBAdapater";
 import $ from 'jquery';
 import { Overlay, Tooltip } from "react-bootstrap";
 

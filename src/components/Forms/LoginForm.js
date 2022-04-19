@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import './MainContainer.css';
 import './forms.css';
-import { LoginCheck } from "../DBAdapater";
+import { LoginCheck } from "../../DBAdapater";
 import $ from 'jquery';
 
 

@@ -1,10 +1,10 @@
 import { React, useState, createContext } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
-import LoginForm from "./components/LoginForm";
-import RegisterForm from "./components/RegisterForm";
-import MainScreen from "./components/MainScreen";
-import ChatsScreen from './components/ChatsScreen';
+import LoginForm from "./components/Forms/LoginForm";
+import RegisterForm from "./components/Forms/RegisterForm";
+import MainScreen from "./components/Forms/MainScreen";
+import ChatsScreen from './components/Chat/ChatsScreen';
 
 export const UserContext = createContext()
 
