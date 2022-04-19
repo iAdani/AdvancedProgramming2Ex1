@@ -12,7 +12,7 @@
     backdrop-filter: blur(12rem);
     text-indent:8px;
     /* font-family: 'Raleway', sans-serif; */
-    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Poppins', sans-serif !important; */
 }
 
 .styledInput:focus{
@@ -46,6 +46,12 @@
     color: rgb(180, 0, 0);
     height: 2rem;
     /* font-weight: bold; */
+    font-family: 'Poppins', sans-serif;
+}
+
+.notLoggedMessage {
+    height: 2rem;
+    font-weight: bold;
     font-family: 'Poppins', sans-serif;
 }
 

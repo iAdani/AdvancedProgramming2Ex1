@@ -15,12 +15,16 @@ export default function RegisterForm({ setActiveUser }) {
     const [password, setPassword] = useState('');
     const [passValid, setPassValid] = useState('');
     const [nickname, setNickname] = useState('');
+    const [image, setImage] = useState('');
     let navigate = useNavigate();
 
     // Used for submit button overlay
     const [show, setShow] = useState(false);
     const [submitOverlayText, setSubmitOverlayText] = useState('');
     let buttonRef = useRef('');
+
+    // Used for image upload
+    let img = useRef('');
 
     // Used for submit button disabling feature
     useEffect(() => {
@@ -62,8 +66,8 @@ export default function RegisterForm({ setActiveUser }) {
                 <PasswordInput setter={setPassword} />
                 <PassValidInput setter={setPassValid} password={password} />
                 <DisplayInput setter={setNickname} />
-                <div className="mb-3 styledInput register-image pointer">
-                    <span className="pointer"><input id="register-image" type="file" /></span>
+                <div className="mb-3 styledInput register-image pointer form-control">
+                    <span className="pointer"><input id="register-image" type="file" accept="image/*" /></span>
                     <label className="pointer" htmlFor="register-image"><i className="bi bi-cloud-arrow-up"></i> Upload an image</label>
                 </div>
                 <span id='submitSpan' ref={buttonRef} onMouseEnter={poppy} onMouseLeave={poppy} >
