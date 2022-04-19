@@ -26,6 +26,9 @@
 .bi-search {
     border: none;
     padding: 10px;
+    transition-duration: .5s;
+    transition-property: all;
+    transform: rotate(360deg);
 }
 
 .sidebar__searchContainer > input {
