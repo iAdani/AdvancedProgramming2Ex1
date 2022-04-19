@@ -15,7 +15,8 @@ p {
     display: flex;
     align-items: center;
     border-bottom: 1px solid lightgray;
-    min-width: 50%; 
+    min-width: 50%;
+    justify-content: space-between !important;
 }
 
 .chat__headerInfo {
@@ -24,7 +25,7 @@ p {
     justify-content: left;
     align-items: center;
     display: flex;
-    /* flex-direction: column; */
+    /* flex-direction: column; */  
 }
 .chat__headerInfo > span {
     display: flex;

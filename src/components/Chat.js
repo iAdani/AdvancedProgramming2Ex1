@@ -4,6 +4,7 @@ import AttachButton from "./AttachButton";
 import { GetNickname, GetLastSeen, Message } from "../DBAdapater";
 import SendButton from "./SendButton";
 import $ from 'jquery';
+import LogoutButton from "./LogoutButton.modules";
 
 function Chat(props) {
   const [messageInput, setMessageInput] = useState("");
@@ -34,7 +35,9 @@ function Chat(props) {
             <p>{GetNickname(props.curContact)}</p>
             <span>{GetLastSeen(props.curContact)}</span>
           </span>
+          
         </div>
+        <LogoutButton/>
       </div>
 
       <div id='chatBody' className="chat__body">
