@@ -31,7 +31,7 @@ function Sidebar(props) {
           {/* <span>{GetNickname(props.activeUser)}</span> */}
         </span>
         <span>
-          <AddContactButton />
+          <AddContactButton activeUser = {props.activeUser}/>
           <LogoutButton />
         </span>
       </div>

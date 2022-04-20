@@ -1,7 +1,23 @@
-import React from "react";
-import './AddContactButton.css';
+import { React, useRef, useState } from "react";
+import "./AddContactButton.css";
+import { UserExists } from "../../DBAdapater";
 
-function AddContactButton() {
+function AddContactButton(props) {
+  const activeUser = props.activeUser;
+  // console.log(activeUser)
+  const [disabled, setDisabled] = useState(true);
+  // console.log("Disbaled is", disabled);
+  const usernameRef = useRef();
+
+  const changeHandler = () => {
+    const userExists = !(
+      UserExists(usernameRef.current.value) &&
+      activeUser !== usernameRef.current.value
+    );
+
+    if (disabled !== userExists) setDisabled(userExists);
+  };
+
   return (
     <div>
       <button
@@ -40,6 +56,8 @@ function AddContactButton() {
                   className="form-control"
                   id="floatingInput"
                   placeholder="Contact's username"
+                  ref={usernameRef}
+                  onChange={changeHandler}
                 />
                 <label htmlFor="floatingInput">Contact's username</label>
               </div>
@@ -47,12 +65,10 @@ function AddContactButton() {
             <div className="modal-footer">
               <button
                 type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
+                className="btn btn-primary"
+                id="addContact"
+                disabled={disabled}
               >
-                Cancel
-              </button>
-              <button type="button" className="btn btn-primary">
                 Add
               </button>
             </div>
