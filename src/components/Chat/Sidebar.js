@@ -12,7 +12,8 @@ import AddContactButton from "./AddContactButton";
 import LogoutButton from "./LogoutButton";
 
 function Sidebar(props) {
-  const contacts = GetContacts(props.activeUser);
+  // const contacts = GetContacts(props.activeUser);
+  const [contacts, setContacts] = useState(GetContacts(props.activeUser));
 
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState(contacts);
@@ -53,7 +54,7 @@ function Sidebar(props) {
           {/* <span>{GetNickname(props.activeUser)}</span> */}
         </span>
         <span>
-          <AddContactButton />
+          <AddContactButton activeUser = {props.activeUser}/>
           <LogoutButton />
         </span>
       </div>

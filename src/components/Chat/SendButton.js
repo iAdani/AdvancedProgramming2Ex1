@@ -3,7 +3,7 @@ import "./SendButton.css";
 
 function SendButton(props) {
   return (
-      <button  className="send-button" type="submit">
+      <button className="send-button" type="submit">
         <div className="svg-wrapper-1">
           <div className="svg-wrapper">
             <svg
