@@ -18,6 +18,11 @@ function AddContactButton(props) {
     if (disabled !== userExists) setDisabled(userExists);
   };
 
+  const addToContacts = () => {
+    const newContact = props.contacts.push(usernameRef.current.value)
+    props.setContacts(newContact)
+  };
+
   return (
     <div>
       <button
@@ -49,29 +54,31 @@ function AddContactButton(props) {
                 aria-label="Close"
               ></button>
             </div>
-            <div className="modal-body">
-              <div className="form-floating mb-3">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="floatingInput"
-                  placeholder="Contact's username"
-                  ref={usernameRef}
-                  onChange={changeHandler}
-                />
-                <label htmlFor="floatingInput">Contact's username</label>
+            <form onSubmit={addToContacts}>
+              <div className="modal-body">
+                <div className="form-floating mb-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="floatingInput"
+                    placeholder="Contact's username"
+                    ref={usernameRef}
+                    onChange={changeHandler}
+                  />
+                  <label htmlFor="floatingInput">Contact's username</label>
+                </div>
               </div>
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-primary"
-                id="addContact"
-                disabled={disabled}
-              >
-                Add
-              </button>
-            </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  id="addContact"
+                  disabled={disabled}
+                >
+                  Add
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
