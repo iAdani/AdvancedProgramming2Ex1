@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
 import SidebarChat from "./SidebarChat";
-import { GetLastMessage, GetContacts, GetNickname } from "../../DBAdapater";
+import { GetLastMessage, GetContacts, GetNickname, GetChat } from "../../DBAdapater";
 import AddContactButton from "./AddContactButton";
 
 function Sidebar(props) {
@@ -45,7 +45,7 @@ function Sidebar(props) {
             setActiveContact={props.setActiveContact}
             contact={contact}
             nickname={GetNickname(contact)}
-            lastMessage={GetLastMessage(props.activeUser, contact)}
+            lastMessage={GetLastMessage(GetChat(props.activeUser, contact))}
             key={contact}
           />
         ))}

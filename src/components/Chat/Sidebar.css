@@ -38,10 +38,6 @@
     flex: 1;
 }
 
-/* .sidebar__searchContainer > input:focus {
-    outline: none;
-} */
-
 .sidebar__header {
     display: flex;
     justify-content: space-between;

@@ -22,14 +22,12 @@ export default function UsernameInput ({ setter }) {
     function poppy() {
         validate();
         setShow(!show);
-        
     }
 
     let f1, f2, f3;
 
     function validate() {
         let val = target.current.value;
-
         if (UserExists(val)) {
             setli3(<span><i className="bi bi-x-lg"></i> Already in use</span>)
             setValidli3('badInput');

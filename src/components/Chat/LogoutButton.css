@@ -1,8 +1,6 @@
-/* From uiverse.io */
 .logout_button > button {
     padding: 1.em 2.1em;
     font-size: 12px;
-    /* text-transform: uppercase; */
     letter-spacing: 1px;
     font-weight: 500;
     color: #000;

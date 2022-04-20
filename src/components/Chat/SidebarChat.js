@@ -1,7 +1,7 @@
 import React from "react";
 import "./SidebarChat.css";
 
-function SidebarChat(props) {
+export default function SidebarChat(props) {
   return (
     <div className="sidebarChat" onClick={() => props.setActiveContact(props.contact.toLowerCase())}>
         <i className="bi bi-person-circle"></i>
@@ -12,5 +12,3 @@ function SidebarChat(props) {
     </div>
   );
 }
-
-export default SidebarChat;
