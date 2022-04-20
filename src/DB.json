@@ -4,7 +4,7 @@
             "Username": "guy",
             "Nickname": "iAdani",
             "Password": "77777",
-            "Image": "",
+            "Image": "/images/gpic.jpg",
             "LastSeen": "Today, 05:44",
             "Contacts": ["yotam"]
         },
@@ -12,7 +12,7 @@
             "Username": "chen",
             "Nickname": "Chnana",
             "Password": "55555",
-            "Image": "",
+            "Image": "/images/cpic.jpg",
             "LastSeen": "Today, 10:44",
             "Contacts": ["yotam"]
         },
@@ -20,7 +20,7 @@
             "Username": "yotam",
             "Nickname": "Yotatm",
             "Password": "12345",
-            "Image": "",
+            "Image": "/images/ypic.jpg",
             "LastSeen": "Today, 07:44",
             "Contacts": ["guy", "chen"]
         }

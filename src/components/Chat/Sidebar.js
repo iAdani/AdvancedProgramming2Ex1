@@ -6,6 +6,7 @@ import {
   GetContacts,
   GetNickname,
   GetChat,
+  GetImage
 } from "../../DBAdapater";
 import AddContactButton from "./AddContactButton";
 import LogoutButton from "./LogoutButton";
@@ -17,17 +18,38 @@ function Sidebar(props) {
   const [filter, setFilter] = useState(contacts);
 
   useEffect(() => {
-    const filteredContacts = contacts.filter((name) =>
-      GetNickname(name).toLowerCase().includes(search.toLowerCase())
-    );
-    setFilter(filteredContacts);
+    if (contacts !== undefined){
+      const filteredContacts = contacts.filter((name) =>
+        GetNickname(name).toLowerCase().includes(search.toLowerCase())
+      );
+      setFilter(filteredContacts);
+    }
   }, [search]);
+
+  const displayChats = () => {
+    if (filter !== undefined) {
+      return (
+        <>
+          {filter.map((contact) => (
+            <SidebarChat
+              setActiveContact={props.setActiveContact}
+              contact={contact}
+              nickname={GetNickname(contact)}
+              lastMessage={GetLastMessage(GetChat(props.activeUser, contact))}
+              key={contact}
+            />
+          ))}
+        </>
+      )
+    }
+    return <></>;
+  }
 
   return (
     <div className="sidebar">
       <div className="sidebar__header">
         <span>
-          <i className="btn bi bi-person-circle"></i>
+        <img src={GetImage(props.activeUser)} />
           {/* <span>{GetNickname(props.activeUser)}</span> */}
         </span>
         <span>
@@ -49,15 +71,7 @@ function Sidebar(props) {
       </div>
 
       <div className="sidebar__chats">
-        {filter.map((contact) => (
-          <SidebarChat
-            setActiveContact={props.setActiveContact}
-            contact={contact}
-            nickname={GetNickname(contact)}
-            lastMessage={GetLastMessage(GetChat(props.activeUser, contact))}
-            key={contact}
-          />
-        ))}
+        {displayChats()}
       </div>
     </div>
   );
