@@ -1,6 +1,5 @@
 import { React, useState, createContext } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import './App.css';
 import LoginForm from "./components/Forms/LoginForm";
 import RegisterForm from "./components/Forms/RegisterForm";
 import MainScreen from "./components/Forms/MainScreen";
