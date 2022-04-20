@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Chat.css";
 import AttachButton from "./AttachButton";
-import { GetNickname, GetLastSeen, Message } from "../../DBAdapater";
+import { GetNickname, GetLastSeen, AddMessage } from "../../DBAdapater";
 import SendButton from "./SendButton";
 import $ from 'jquery';
 import LogoutButton from "./LogoutButton";
@@ -9,10 +9,12 @@ import LogoutButton from "./LogoutButton";
 function Chat(props) {
   const [messageInput, setMessageInput] = useState("");
 
-  const sendMessage = (e) => {
+  const sendMessage = (input) => {
+    const sender = props.activeUser;
+    const reciever = props.curContact;
     const d = new Date();
-    const newMsg = new Message(true, String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0'), e);
-    props.curChat.push(newMsg);
+    const time = String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
+    AddMessage(props.curChat, sender, reciever, time, 'text', input);
     setMessageInput("");
   };
 
@@ -26,6 +28,28 @@ function Chat(props) {
 
   let k = 1; // Unique key for messages
 
+  const isReciever = (msg) => {
+    if (msg.Sender === props.activeUser) return 'chat__reciever'
+    return ''
+  }
+
+  const displayMessages = () => {
+    if (props.curChat === undefined) return <></>
+    return (
+      <>
+        {props.curChat.Messages.map((msg) => (
+          <p
+            className={'chat__message ' + isReciever(msg)}
+            key={k++}
+          >
+            {msg.Content}
+            <span className="chat__timestamp">{msg.Time}</span>
+          </p>
+        ))}
+      </>
+    )
+  }
+
   return (
     <div className="chat">
       <div className="chat__header">
@@ -37,20 +61,11 @@ function Chat(props) {
           </span>
           
         </div>
-        <LogoutButton activeUser={props.activeUser} />
+        <LogoutButton />
       </div>
 
       <div id='chatBody' className="chat__body">
-        {props.curChat.map((msg) => (
-          <p
-            className={`chat__message ${msg.activeUserSent && "chat__reciever"
-              }`}
-            key={k++}
-          >
-            {msg.message}
-            <span className="chat__timestamp">{msg?.time} </span>
-          </p>
-        )).reverse()}
+        <div>{displayMessages()}</div>
       </div>
 
       <div className={"chat__footer"}>
@@ -58,7 +73,7 @@ function Chat(props) {
         <form onSubmit={submitMessage}>
           <input
             value={messageInput}
-            onChange={(e) => setMessageInput(e.target.value)}
+            onChange={(e) => {setMessageInput(e.target.value)}}
             placeholder="Type a message..."
             type="text"
           />

@@ -10,7 +10,7 @@ import $ from 'jquery';
 export default function LoginForm({ setActiveUser }) {
 
     let navigate = useNavigate();
-    const [invalidMessage, setInvalidMessage] = useState("");
+    const [invalidMessage, setInvalidMessage] = useState('');
 
     const [usernameValue, setUsernameValue] = useState('');
     const [passwordValue, setPasswordValue] = useState('');

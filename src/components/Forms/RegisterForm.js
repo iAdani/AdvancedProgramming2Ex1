@@ -7,6 +7,7 @@ import DisplayInput from "./RegisterInputs/DisplayInput";
 import { AddUser } from "../../DBAdapater";
 import $ from 'jquery';
 import { Overlay, Tooltip } from "react-bootstrap";
+import ImageInput from "./RegisterInputs/ImageInput";
 
 export default function RegisterForm({ setActiveUser }) {
   
@@ -23,12 +24,9 @@ export default function RegisterForm({ setActiveUser }) {
     const [submitOverlayText, setSubmitOverlayText] = useState('');
     let buttonRef = useRef('');
 
-    // Used for image upload
-    let img = useRef('');
-
     // Used for submit button disabling feature
     useEffect(() => {
-        if (username === '' || password === '' || passValid === '' || nickname === '') {
+        if (username === '' || password === '' || passValid === '' || nickname === '' || image === '') {
             $('#registerSubmit').prop('disabled', true);
         } else {
             $('#registerSubmit').prop('disabled', false);
@@ -38,8 +36,8 @@ export default function RegisterForm({ setActiveUser }) {
     // Registering after submition
     const Register = function (element) {
         element.preventDefault();
-        if (username !== '' && password !== '' && passValid !== '' && nickname !== '') {
-            AddUser(username, nickname, password);
+        if (username !== '' && password !== '' && passValid !== '' && nickname !== '' && image !== '') {
+            AddUser(username, nickname, password, image);
             setActiveUser(username);
             navigate('/chats');
         } else {
@@ -66,10 +64,7 @@ export default function RegisterForm({ setActiveUser }) {
                 <PasswordInput setter={setPassword} />
                 <PassValidInput setter={setPassValid} password={password} />
                 <DisplayInput setter={setNickname} />
-                <div className="mb-3 styledInput register-image pointer form-control">
-                    <span className="pointer"><input id="register-image" type="file" accept="image/*" /></span>
-                    <label className="pointer" htmlFor="register-image"><i className="bi bi-cloud-arrow-up"></i> Upload an image</label>
-                </div>
+                <ImageInput setter={setImage} />
                 <span id='submitSpan' ref={buttonRef} onMouseEnter={poppy} onMouseLeave={poppy} >
                     <button id='registerSubmit' className="mainButton w-75 btn" type="submit">Register</button>
                 </span>

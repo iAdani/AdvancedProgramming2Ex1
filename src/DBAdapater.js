@@ -1,94 +1,90 @@
-// hardcoded DB
-const users = new Map(
-  [
-    new User("guy", "iAdani", "77777"),
-    new User("chen", "Chnana", "55555"),
-    new User("yotam", "Yotatm", "12345"),
-  ].map((user) => {
-    return [user.username, user];
-  })
-);
-users.get("chen").lastSeen = ["today", " 3:12pm"];
-users
-  .get("yotam")
-  .chats.set("chen", [
-    new Message(false, "3:54pm", "Bitches b strollin"),
-    new Message(true, "5:01pm", "ma at rotza?!@"),
-  ]);
-users
-  .get("yotam")
-  .chats.set("guy", [
-    new Message(false, "3:54pm", "Bitches b strollin"),
-    new Message(true, "5:01pm", "חתולה מיוחמת"),
-  ]);
+import DB from './DB.json'
 
-function User(username, nickname, password) {
-  this.username = username;
-  this.nickname = nickname;
-  this.password = password;
-  this.chats = new Map();
-  this.lastSeen = ["today", " 4:43pm"];
-}
-
-function Message(activeUserSent, time, message) {
-  this.activeUserSent = activeUserSent;
-  this.time = time;
-  this.message = message;
-}
-
-// checks if username exists in DB
+// Checks if username already exists.
 function UserExists(username) {
-  return users.has(username);
+  const user = DB.Users.find(user => user.Username === username.toLowerCase());
+  if (user !== undefined) return true;
+  return false;
 }
 
-// adds user to user pool database
-function AddUser(username, nickname, password) {
-  let usernameLower = username.toLowerCase()
-  if (UserExists(usernameLower)) return;
-  users.set(usernameLower, new User(usernameLower, nickname, password));
-  console.log(users)
+// Adds user to the DB.
+function AddUser(username, nickname, password, image) {
+  if (UserExists(username.toLowerCase)) return;
+  DB.Users.push({
+    "Username": username.toLowerCase(),
+    "Nickname": nickname,
+    "Password": password,
+    "Image": image,
+    "LastSeen": "Now"
+  })
 }
 
-// checks if details are valid for login
+// Adds a message to the chat
+function AddMessage(chat, sender, reciever, time, type, content) {
+  chat.Messages.push({
+    "Sender": sender,
+    "Reciever": reciever,
+    "Time": time,
+    "Type": type,
+    "Content": content
+  })
+}
+
+// Checks if details are valid for login.
 function LoginCheck(username, password) {
   if (!UserExists(username)) return false;
-  let user = users.get(username);
-  return user.password === password;
+  const user = DB.Users.find(user => user.Username === username);
+  return user.Password === password;
 }
 
-// returns current user's nickname
+// Returns user's nickname.
 function GetNickname(username) {
   if (UserExists(username)) {
-    return users.get(username).nickname;
+    const user = DB.Users.find(user => user.Username === username);
+    return user.Nickname;
   }
 }
 
-function GetContacts(user) {
-  return UserExists(user) ? [...users.get(user).chats.keys()] : [];
-}
-
-function GetChat(user, recipient) {
-  return UserExists(user) && UserExists(recipient)
-    ? users.get(user).chats.get(recipient)
-    : [];
-}
-
-function GetLastMessage(user, recipient) {
-  if (UserExists(user) && UserExists(recipient)) {
-    let msg = users
-      .get(user)
-      .chats.get(recipient)
-      .find((msg) => msg.activeUserSent);
-    return msg.message;
+// Returns user's last seen.
+function GetLastSeen(username) {
+  if (UserExists(username)) {
+    const user = DB.Users.find(user => user.Username === username);
+    return user.LastSeen;
   }
 }
 
-function GetLastSeen(user) {
-  return UserExists(user) ? users.get(user).lastSeen : '';
+// Returns all the users that this user has chat history with.
+function GetContacts(username) {
+  if (UserExists(username)) {
+    const user = DB.Users.find(user => user.Username === username);
+    return user.Contacts;
+  }
+}
+
+// Returns the chat of the user with another user, if exists.
+function GetChat(username, recipient) {
+  const user = DB.Users.find(u => u.Username === username);
+  if (user !== undefined) {
+    const recip = DB.Users.find(r => r.Username === recipient);
+    if (recip !== undefined) {
+      const chat = DB.Chats.find(c =>
+         ((c.Contact1 === recipient && c.Contact2 === username) ||
+         (c.Contact1 === username && c.Contact2 === recipient)));
+      return chat;
+    }
+  }
+  return undefined;
+}
+
+// Returns the last message in the chat
+function GetLastMessage(chat) {
+  if (chat.Messages !== undefined) return chat.Messages.at(-1).Content;
+  return '';
 }
 
 export {
   AddUser,
+  AddMessage,
   LoginCheck,
   UserExists,
   GetNickname,
@@ -96,5 +92,4 @@ export {
   GetContacts,
   GetLastMessage,
   GetLastSeen,
-  Message,
 };
