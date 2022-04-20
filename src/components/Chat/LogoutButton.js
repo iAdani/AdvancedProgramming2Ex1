@@ -7,17 +7,14 @@ export default function LogoutButton() {
   let navigate = useNavigate();
   const setActiveContact = useContext(UserContext);
 
-
   const logout = () => {
-    setActiveContact('');
-    navigate('/');
-  }
+    setActiveContact("");
+    navigate("/");
+  };
 
   return (
-    <div className="logout_button">
-      <button onClick={logout}>
-        <i className="bi bi-box-arrow-in-right"></i>
-      </button>
+    <div className="logout-button" onClick={logout}>
+      <i class="bi bi-box-arrow-right"></i>
     </div>
   );
 }

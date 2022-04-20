@@ -14,3 +14,7 @@
 .dropdown-menu.show {
     inset: auto auto 11px 3px;
 }
+
+.dropup .dropdown-toggle::after {
+    content: none;
+}

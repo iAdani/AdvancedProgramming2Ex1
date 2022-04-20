@@ -1,4 +1,4 @@
-.logout_button > button {
+/* .logout_button > button {
     padding: 1.em 2.1em;
     font-size: 12px;
     letter-spacing: 1px;
@@ -24,8 +24,12 @@
    
 .logout_button > button:active {
     transform: translateY(-1px);
+} */
+
+.logout-button {
+    cursor: pointer;
 }
 
-.bi-box-arrow-in-right {
-    font-size: 20px;
+.bi-box-arrow-right {
+    font-size: 35px;
 }

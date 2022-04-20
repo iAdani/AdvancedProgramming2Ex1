@@ -61,6 +61,10 @@
 }
 
 .sidebar__header > span {
-    font-size: 1.5rem;
-    font-weight: bolder;
+    /* font-size: 1.5rem;
+    font-weight: bolder; */
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    
 }
