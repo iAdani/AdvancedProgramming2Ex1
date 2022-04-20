@@ -9,6 +9,7 @@
 
 .dropdown-menu {
     min-width: 0;
+    cursor: pointer;
 }
 
 .dropdown-menu.show {
@@ -17,4 +18,17 @@
 
 .dropup .dropdown-toggle::after {
     content: none;
+}
+
+.dropdown-item:active {
+    background-color: rgb(150, 150, 150) !important;
+}
+
+.dropdown-item > label {
+    cursor: pointer;
+}
+
+.dropdown-item > input {
+    position: fixed;
+    top: -100em;
 }

@@ -17,3 +17,9 @@
 .sidebarChat__info {
     margin-left: 15px;
 }
+
+.sidebarChat > img {
+    width: 15%;
+    /* max-width: 200px !important; */
+    clip-path: circle();
+}
