@@ -2,14 +2,14 @@ import DB from './DB.json'
 
 // Checks if username already exists.
 function UserExists(username) {
-  const user = DB.Users.find(user => user.Username === username.toLowerCase());
+  const user = DB.Users.find(u => u.Username === username.toLowerCase());
   if (user !== undefined) return true;
   return false;
 }
 
 // Adds user to the DB.
 function AddUser(username, nickname, password, image) {
-  if (UserExists(username.toLowerCase)) return;
+  if (UserExists(username)) return;
   DB.Users.push({
     "Username": username.toLowerCase(),
     "Nickname": nickname,
@@ -45,6 +45,14 @@ function GetNickname(username) {
   }
 }
 
+// Returns user's image.
+function GetImage(username) {
+  if (UserExists(username)) {
+    const user = DB.Users.find(user => user.Username === username);
+    return user.Image;
+  }
+}
+
 // Returns user's last seen.
 function GetLastSeen(username) {
   if (UserExists(username)) {
@@ -57,8 +65,9 @@ function GetLastSeen(username) {
 function GetContacts(username) {
   if (UserExists(username)) {
     const user = DB.Users.find(user => user.Username === username);
-    return user.Contacts;
+    return user.Contacts !== undefined ? user.Contacts : [];
   }
+  return [];
 }
 
 // Returns the chat of the user with another user, if exists.
@@ -88,6 +97,7 @@ export {
   LoginCheck,
   UserExists,
   GetNickname,
+  GetImage,
   GetChat,
   GetContacts,
   GetLastMessage,

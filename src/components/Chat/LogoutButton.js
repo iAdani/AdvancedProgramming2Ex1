@@ -14,7 +14,7 @@ export default function LogoutButton() {
 
   return (
     <div className="logout-button" onClick={logout}>
-      <i class="bi bi-box-arrow-right"></i>
+      <i className="bi bi-box-arrow-right" />
     </div>
   );
 }
