@@ -6,7 +6,7 @@ import {
   GetContacts,
   GetNickname,
   GetChat,
-  GetImage
+  GetImage,
 } from "../../DBAdapater";
 import AddContactButton from "./AddContactButton";
 import LogoutButton from "./LogoutButton";
@@ -19,13 +19,13 @@ function Sidebar(props) {
   const [filter, setFilter] = useState(contacts);
 
   useEffect(() => {
-    if (contacts !== undefined){
+    if (contacts !== undefined) {
       const filteredContacts = contacts.filter((name) =>
         GetNickname(name).toLowerCase().includes(search.toLowerCase())
       );
       setFilter(filteredContacts);
     }
-  }, [search]);
+  }, [search, contacts]);
 
   const displayChats = () => {
     if (filter !== undefined) {
@@ -41,20 +41,20 @@ function Sidebar(props) {
             />
           ))}
         </>
-      )
+      );
     }
     return <></>;
-  }
+  };
 
   return (
     <div className="sidebar">
       <div className="sidebar__header">
         <span>
-        <img src={GetImage(props.activeUser)} />
+          <img src={GetImage(props.activeUser)} />
           {/* <span>{GetNickname(props.activeUser)}</span> */}
         </span>
         <span>
-          <AddContactButton activeUser = {props.activeUser}/>
+          <AddContactButton activeUser={props.activeUser} />
           <LogoutButton />
         </span>
       </div>
@@ -71,9 +71,7 @@ function Sidebar(props) {
         </div>
       </div>
 
-      <div className="sidebar__chats">
-        {displayChats()}
-      </div>
+      <div className="sidebar__chats">{displayChats()}</div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { React, useRef, useState } from "react";
 import "./AddContactButton.css";
-import { UserExists } from "../../DBAdapater";
+import { UserExists, AddContact } from "../../DBAdapater";
 
 function AddContactButton(props) {
   const activeUser = props.activeUser;
@@ -19,8 +19,9 @@ function AddContactButton(props) {
   };
 
   const addToContacts = () => {
-    const newContact = props.contacts.push(usernameRef.current.value)
-    props.setContacts(newContact)
+    AddContact(props.activeUser, usernameRef.current.value)
+    const newContacts = props.contact.push(usernameRef);
+    props.setContacts(newContacts)
   };
 
   return (
