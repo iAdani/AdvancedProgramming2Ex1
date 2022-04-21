@@ -6,7 +6,7 @@ import {
   GetContacts,
   GetNickname,
   GetChat,
-  GetImage
+  GetImage,
 } from "../../DBAdapater";
 import AddContactButton from "./AddContactButton";
 import LogoutButton from "./LogoutButton";
@@ -14,18 +14,17 @@ import LogoutButton from "./LogoutButton";
 function Sidebar(props) {
   // const contacts = GetContacts(props.activeUser);
   const [contacts, setContacts] = useState(GetContacts(props.activeUser));
-
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState(contacts);
 
   useEffect(() => {
-    if (contacts !== undefined){
+    if (contacts !== undefined) {
       const filteredContacts = contacts.filter((name) =>
         GetNickname(name).toLowerCase().includes(search.toLowerCase())
       );
       setFilter(filteredContacts);
     }
-  }, [search]);
+  }, [search, JSON.stringify(contacts)]); // stringify since useEffect doesn't catch array changes
 
   const displayChats = () => {
     if (filter !== undefined) {
@@ -41,27 +40,32 @@ function Sidebar(props) {
             />
           ))}
         </>
-      )
+      );
     }
     return <></>;
-  }
+  };
 
   return (
     <div className="sidebar">
       <div className="sidebar__header">
         <span>
-        <img src={GetImage(props.activeUser)} />
+          <img src={GetImage(props.activeUser)} />
           {/* <span>{GetNickname(props.activeUser)}</span> */}
         </span>
         <span>
-          <AddContactButton activeUser = {props.activeUser}/>
+          <AddContactButton
+            activeUser={props.activeUser}
+            setActiveContact={props.setActiveContact}
+            setContacts={setContacts}
+            contacts={contacts}
+          />
           <LogoutButton />
         </span>
       </div>
 
       <div className="sidebar__search">
         <div className="sidebar__searchContainer">
-          <i className="bi bi-search"  />
+          <i className="bi bi-search" />
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -71,9 +75,7 @@ function Sidebar(props) {
         </div>
       </div>
 
-      <div className="sidebar__chats">
-        {displayChats()}
-      </div>
+      <div className="sidebar__chats">{displayChats()}</div>
     </div>
   );
 }
