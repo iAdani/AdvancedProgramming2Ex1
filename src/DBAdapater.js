@@ -14,9 +14,10 @@ function AddUser(username, nickname, password, image) {
     "Username": username.toLowerCase(),
     "Nickname": nickname,
     "Password": password,
-    "Image": image,
+    "Image": URL.createObjectURL(image),
     "LastSeen": "Now"
   })
+  console.log(DB.Users.at(-1).Image)
 }
 
 // Adds a message to the chat

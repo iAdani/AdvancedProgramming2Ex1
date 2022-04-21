@@ -25,15 +25,24 @@ p {
     justify-content: left;
     align-items: center;
     display: flex;
+    height: 8vh;
+
     /* flex-direction: column; */  
 }
 .chat__headerInfo > span {
     display: flex;
     flex-direction: column;
+    padding-left: 15px;
 }
 .chat__headerInfo > span > p{
    font-weight: bold;
    font-size: 1.3rem;
+}
+
+.chat__headerInfo > img {
+    height: 80%;
+    max-width: 200px;
+    clip-path: circle();
 }
 
 
