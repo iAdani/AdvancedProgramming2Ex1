@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Chat.css";
 import AttachButton from "./AttachButton";
-import { GetNickname, GetLastSeen, AddMessage } from "../../DBAdapater";
+import { GetNickname, GetLastSeen, AddMessage, GetImage } from "../../DBAdapater";
 import SendButton from "./SendButton";
 import $ from 'jquery';
 
@@ -53,7 +53,7 @@ function Chat(props) {
     <div className="chat">
       <div className="chat__header">
         <div className="chat__headerInfo">
-          <i className="btn bi bi-person-circle"></i>
+          <img src={GetImage(props.curContact)} />
           <span>
             <p>{GetNickname(props.curContact)}</p>
             <span>{GetLastSeen(props.curContact)}</span>
