@@ -1,26 +1,28 @@
-import { React, useRef, useState } from "react";
+import { React, useState, useEffect } from "react";
 import "./AddContactButton.css";
-import { UserExists } from "../../DBAdapater";
+import { UserExists, AddContact } from "../../DBAdapater";
 
 function AddContactButton(props) {
-  const activeUser = props.activeUser;
-  // console.log(activeUser)
   const [disabled, setDisabled] = useState(true);
-  // console.log("Disbaled is", disabled);
-  const usernameRef = useRef();
+  const [contact, setContact] = useState("");
 
-  const changeHandler = () => {
-    const userExists = !(
-      UserExists(usernameRef.current.value) &&
-      activeUser !== usernameRef.current.value
-    );
+  useEffect(() => {
+    var temp = !UserExists(contact);
+    setDisabled(temp);
+  }, [contact]);
 
-    if (disabled !== userExists) setDisabled(userExists);
+  const addContact = () => {
+    if (UserExists(contact)) {
+      AddContact(props.activeUser, contact);
+      props.setActiveContact(contact);
+    }
+    setContact("");
+    const updatedContacts = props.contacts;
+    props.setContacts(updatedContacts);
   };
 
-  const addToContacts = () => {
-    const newContact = props.contacts.push(usernameRef.current.value)
-    props.setContacts(newContact)
+  const clearContact = () => {
+    setContact("");
   };
 
   return (
@@ -42,48 +44,54 @@ function AddContactButton(props) {
         aria-hidden="true"
       >
         <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">
-                Add new contact
-              </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <form onSubmit={addToContacts}>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              addContact();
+            }}
+          >
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">
+                  Add new contact
+                </h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                  onClick={clearContact}
+                ></button>
+              </div>
               <div className="modal-body">
                 <div className="form-floating mb-3">
                   <input
                     type="text"
-                    className="form-control"
+                    placeholder="Contact's contact"
                     id="floatingInput"
-                    placeholder="Contact's username"
-                    ref={usernameRef}
-                    onChange={changeHandler}
+                    className="form-control"
+                    value={contact}
+                    onChange={(e) => setContact(e.target.value)}
                   />
-                  <label htmlFor="floatingInput">Contact's username</label>
+                  <label htmlFor="floatingInput">Add Contact</label>
                 </div>
               </div>
               <div className="modal-footer">
                 <button
-                  type="button"
+                  type="submit"
                   className="btn btn-primary"
                   id="addContact"
                   disabled={disabled}
+                  data-bs-dismiss="modal"
                 >
                   Add
                 </button>
               </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   );
 }
-
 export default AddContactButton;
