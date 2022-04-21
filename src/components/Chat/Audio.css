@@ -1,0 +1,8 @@
+audio::-webkit-media-controls-panel {
+    background-color: #56AEFF;
+}
+
+audio {
+    height: 40px;
+    width: 230px;
+}

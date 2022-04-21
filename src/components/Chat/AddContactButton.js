@@ -27,7 +27,7 @@ function AddContactButton(props) {
     <div>
       <button
         type="button"
-        className="btn"
+        className="btn addContact"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >
