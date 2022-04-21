@@ -114,3 +114,10 @@ p {
 .bi-paperclip{
     padding: 10px;
 }
+
+.bi-mic {
+    font-size: 22px;
+    align-items: center;
+    display: flex;
+    padding-left: 10px;
+}
