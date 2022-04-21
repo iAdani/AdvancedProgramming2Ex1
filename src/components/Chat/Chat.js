@@ -1,54 +1,68 @@
 import React, { useState } from "react";
 import "./Chat.css";
 import AttachButton from "./AttachButton";
-import { GetNickname, GetLastSeen, AddMessage, GetImage } from "../../DBAdapater";
+import {
+  GetNickname,
+  GetLastSeen,
+  AddMessage,
+  GetImage,
+} from "../../DBAdapater";
 import SendButton from "./SendButton";
-import $ from 'jquery';
+import $ from "jquery";
 
 function Chat(props) {
   const [messageInput, setMessageInput] = useState("");
 
   var k = 1; // Unique key for messages
 
-  const sendMessage = (input) => {
-    const sender = props.activeUser;
-    const reciever = props.curContact;
-    const d = new Date();
-    const time = String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
-    AddMessage(props.curChat, sender, reciever, time, 'text', input);
-    setMessageInput("");
+  const sendText = (e) => {
+    e.preventDefault();
+    if (messageInput !== "") {
+      AddMessage(
+        props.curChat,
+        props.activeUser,
+        props.curContact,
+        getTime(),
+        "text",
+        messageInput
+      );
+      cleanUp();
+    }
   };
 
-  const submitMessage = (e) => {
-    e.preventDefault();
-    if (messageInput !== '') {
-      sendMessage(messageInput);
-      $('#chatBody').scrollTop(0);
-    }
-  }
+  const cleanUp = () => {
+    setMessageInput("");
+    const upd = !props.updateLastMessage
+    props.setUpdateLastMessage(upd);
+    $("#chatBody").scrollTop(0);
+  };
 
+  const getTime = () => {
+    const d = new Date();
+    const time =
+      String(d.getHours()).padStart(2, "0") +
+      ":" +
+      String(d.getMinutes()).padStart(2, "0");
+    return time;
+  };
 
   const isReciever = (msg) => {
-    if (msg.Sender === props.activeUser) return 'chat__reciever'
-    return ''
-  }
+    return msg.Sender === props.activeUser ? "chat__reciever" : "";
+  };
 
   const displayMessages = () => {
-    if (props.curChat === undefined) return <></>
+    if (props.curChat === undefined) return <></>;
     return (
       <>
         {props.curChat.Messages.map((msg) => (
-          <p
-            className={'chat__message ' + isReciever(msg)}
-            key={k++}
-          >
+          <p className={"chat__message " + isReciever(msg)} key={k++}>
             {msg.Content}
             <span className="chat__timestamp">{msg.Time}</span>
           </p>
         ))}
       </>
-    )
-  }
+    );
+  };
 
   return (
     <div className="chat">
@@ -59,28 +73,26 @@ function Chat(props) {
             <p>{GetNickname(props.curContact)}</p>
             <span>{GetLastSeen(props.curContact)}</span>
           </span>
-          
         </div>
       </div>
 
-      <div id='chatBody' className="chat__body">
+      <div id="chatBody" className="chat__body">
         <div>{displayMessages()}</div>
       </div>
 
       <div className={"chat__footer"}>
         <AttachButton />
-        <form onSubmit={submitMessage}>
+        <form onSubmit={(e) => sendText(e)}>
           <input
             value={messageInput}
-            onChange={(e) => {setMessageInput(e.target.value)}}
+            onChange={(e) => {
+              setMessageInput(e.target.value);
+            }}
             placeholder="Type a message..."
             type="text"
           />
-          <i className="bi bi-mic"/>
-          <SendButton
-            sendMessage={sendMessage}
-            message={messageInput}
-          ></SendButton>
+          <i className="bi bi-mic" />
+          <SendButton sendText={sendText} message={messageInput}></SendButton>
         </form>
       </div>
     </div>
