@@ -75,6 +75,7 @@ function Chat(props) {
             placeholder="Type a message..."
             type="text"
           />
+          <i className="bi bi-mic"/>
           <SendButton
             sendMessage={sendMessage}
             message={messageInput}
