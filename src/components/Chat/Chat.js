@@ -8,6 +8,8 @@ import $ from 'jquery';
 function Chat(props) {
   const [messageInput, setMessageInput] = useState("");
 
+  var k = 1; // Unique key for messages
+
   const sendMessage = (input) => {
     const sender = props.activeUser;
     const reciever = props.curContact;
@@ -25,7 +27,6 @@ function Chat(props) {
     }
   }
 
-  let k = 1; // Unique key for messages
 
   const isReciever = (msg) => {
     if (msg.Sender === props.activeUser) return 'chat__reciever'

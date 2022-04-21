@@ -3,21 +3,20 @@ import DB from "./DB.json";
 // Checks if username already exists.
 function UserExists(username) {
   const user = DB.Users.find((u) => u.Username === username.toLowerCase());
-  if (user !== undefined) return true;
-  return false;
+  return user !== undefined ? true : false;
 }
 
 // Adds user to the DB.
 function AddUser(username, nickname, password, image) {
   if (UserExists(username)) return;
   DB.Users.push({
-    "Username": username.toLowerCase(),
-    "Nickname": nickname,
-    "Password": password,
-    "Image": URL.createObjectURL(image),
-    "LastSeen": "Now"
-  })
-  console.log(DB.Users.at(-1).Image)
+    Username: username.toLowerCase(),
+    Nickname: nickname,
+    Password: password,
+    Image: URL.createObjectURL(image),
+    LastSeen: "Now",
+  });
+  console.log(DB.Users.at(-1).Image);
 }
 
 // Adds a message to the chat
@@ -32,8 +31,17 @@ function AddMessage(chat, sender, reciever, time, type, content) {
 }
 
 function AddContact(username, contact) {
-  if (UserExists(username) && UserExists(contact))
-    DB.Chats.push({ username, contact, Messages: new Array() });
+  if (UserExists(username) && UserExists(contact)) {
+    const user = DB.Users.find((user) => user.Username === username);
+    if (!user.Contacts.find((t) => t === contact)) {
+      user.Contacts.push(contact);
+      DB.Chats.push({
+        Contact1: username,
+        Contact2: contact,
+        Messages: new Array(),
+      });
+    }
+  }
 }
 
 // Checks if details are valid for login.
@@ -95,7 +103,8 @@ function GetChat(username, recipient) {
 
 // Returns the last message in the chat
 function GetLastMessage(chat) {
-  if (chat.Messages !== undefined) return chat.Messages.at(-1).Content;
+  if (chat.Messages !== undefined && chat.Messages.length > 0)
+    return chat.Messages.at(-1).Content;
   return "";
 }
 

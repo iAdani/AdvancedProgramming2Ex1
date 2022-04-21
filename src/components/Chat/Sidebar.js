@@ -14,7 +14,6 @@ import LogoutButton from "./LogoutButton";
 function Sidebar(props) {
   // const contacts = GetContacts(props.activeUser);
   const [contacts, setContacts] = useState(GetContacts(props.activeUser));
-
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState(contacts);
 
@@ -25,7 +24,7 @@ function Sidebar(props) {
       );
       setFilter(filteredContacts);
     }
-  }, [search, contacts]);
+  }, [search, JSON.stringify(contacts)]); // stringify since useEffect doesn't catch array changes
 
   const displayChats = () => {
     if (filter !== undefined) {
@@ -54,14 +53,19 @@ function Sidebar(props) {
           {/* <span>{GetNickname(props.activeUser)}</span> */}
         </span>
         <span>
-          <AddContactButton activeUser={props.activeUser} />
+          <AddContactButton
+            activeUser={props.activeUser}
+            setActiveContact={props.setActiveContact}
+            setContacts={setContacts}
+            contacts={contacts}
+          />
           <LogoutButton />
         </span>
       </div>
 
       <div className="sidebar__search">
         <div className="sidebar__searchContainer">
-          <i className="bi bi-search"  />
+          <i className="bi bi-search" />
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
