@@ -61,11 +61,11 @@ function Sidebar(props) {
 
       <div className="sidebar__search">
         <div className="sidebar__searchContainer">
-          <i className="bi bi-search"></i>
+          <i className="bi bi-search"  />
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search or start new chat"
+            placeholder="Search a chat..."
             type="text"
           />
         </div>

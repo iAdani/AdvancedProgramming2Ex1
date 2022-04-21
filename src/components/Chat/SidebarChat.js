@@ -5,7 +5,6 @@ import { GetImage } from "../../DBAdapater";
 export default function SidebarChat(props) {
   return (
     <div className="sidebarChat" onClick={() => props.setActiveContact(props.contact.toLowerCase())}>
-        {/* <i className="bi bi-person-circle"></i> */}
         <img src={GetImage(props.contact)} />
         <div className="sidebarChat__info">
           <h2>{props.nickname}</h2>

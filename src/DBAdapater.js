@@ -11,12 +11,13 @@ function UserExists(username) {
 function AddUser(username, nickname, password, image) {
   if (UserExists(username)) return;
   DB.Users.push({
-    Username: username.toLowerCase(),
-    Nickname: nickname,
-    Password: password,
-    Image: image,
-    LastSeen: "Now",
-  });
+    "Username": username.toLowerCase(),
+    "Nickname": nickname,
+    "Password": password,
+    "Image": URL.createObjectURL(image),
+    "LastSeen": "Now"
+  })
+  console.log(DB.Users.at(-1).Image)
 }
 
 // Adds a message to the chat
