@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Chat.css";
 import AttachButton from "./AttachButton";
 import { GetNickname, GetLastSeen, AddMessage, GetImage } from "../../DBAdapater";
 import SendButton from "./SendButton";
 import $ from 'jquery';
+import Audio from "./Audio";
 
 function Chat(props) {
   const [messageInput, setMessageInput] = useState("");
 
   var k = 1; // Unique key for messages
+
+  const footerDisplay = useEffect(() => {
+    if(props.curContact === '') {
+      $('#chatFooter').hide();
+    }
+    else $('#chatFooter').show();
+  })
 
   const sendMessage = (input) => {
     const sender = props.activeUser;
@@ -67,8 +75,8 @@ function Chat(props) {
         <div>{displayMessages()}</div>
       </div>
 
-      <div className={"chat__footer"}>
-        <AttachButton />
+      <div id='chatFooter' className={"chat__footer"}>
+        <AttachButton {...props} />
         <form onSubmit={submitMessage}>
           <input
             value={messageInput}
@@ -76,11 +84,13 @@ function Chat(props) {
             placeholder="Type a message..."
             type="text"
           />
-          <i className="bi bi-mic"/>
+          <div id='audioButtonContainer'>
+            <button className="audioButton"><i className="bi bi-mic"/></button>
+          </div>
           <SendButton
             sendMessage={sendMessage}
             message={messageInput}
-          ></SendButton>
+          />
         </form>
       </div>
     </div>

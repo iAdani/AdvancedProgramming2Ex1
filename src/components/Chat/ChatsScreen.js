@@ -16,9 +16,9 @@ export default function ChatsScreen({ activeUser }) {
     }
   }, [activeContact]);
 
-    if (activeUser === '') {
-      return <NotLogged />;
-    }
+    // if (activeUser === '') {
+    //   return <NotLogged />;
+    // }
 
     return (
         <div className="chats__body">
