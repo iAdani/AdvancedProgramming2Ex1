@@ -17,6 +17,7 @@ export default function Chat(props) {
 
   var k = 1; // Unique key for messages
 
+  // Hides the header and footer when no chat is active
   const footerDisplay = useEffect(() => {
     if(props.curContact === '') {
       $('#chatFooter').hide();
@@ -28,6 +29,7 @@ export default function Chat(props) {
     }
   })
 
+  // Sends text message to the chat
   const sendText = (e) => {
     e.preventDefault();
     if (messageInput !== "") {
@@ -42,6 +44,7 @@ export default function Chat(props) {
     }
   };
 
+  // Make everything work smoothly
   const cleanUp = () => {
     setMessageInput("");
     const upd = !props.updateLastMessage
@@ -49,30 +52,30 @@ export default function Chat(props) {
     $("#chatBody").scrollTop(0);
   };
 
-
-  const isImage = (msg) => {
-    if (msg.Type === 'image') return ''
-    return '';
-  }
-
-  const isReciever = (msg) => {
+  // Adds sender design to messages
+  const isSender = (msg) => {
     return msg.Sender === props.activeUser ? "chat__sender" : "";
   };
 
-  const displatMessageContent = (msg) => {
+  // Displays the message by type
+  const displayMessageContent = (msg) => {
     if (msg.Type === "text") return <span>{msg.Content}</span>;
     if (msg.Type === "image") return (
       <img className="chatImage" src={msg.Content} />
     )
+    if (msg.Type === "video") return (
+      <video className="chatVideo" src={msg.Content} controls='controls' />
+    )
   }
 
+  // Displays all messages in chat
   const displayMessages = () => {
     if (props.curChat === undefined) return <></>;
     return (
       <>
         {props.curChat.Messages.map((msg) => (
-          <div className={isImage(msg) + " chat__message " + isReciever(msg)} key={k++}>
-            {displatMessageContent(msg)}
+          <div className={"chat__message " + isSender(msg)} key={k++}>
+            {displayMessageContent(msg)}
             <span className="chat__timestamp">{msg.Time}</span>
           </div>
         ))}

@@ -145,3 +145,9 @@ p {
     max-height: 25vh;
     margin-bottom: 5px;
 }
+
+.chatVideo {
+    max-width: 25vw;
+    max-height: 25vh;
+    margin-bottom: 5px;
+}
