@@ -5,13 +5,28 @@ import SendButton from "./SendButton";
 import './AttachButton.css';
 import $ from 'jquery';
 import { AddMessage } from "../../DBAdapater";
+import { getTime } from "./Chat";
 
-export default function SendImageButton({chat}) {
+
+export default function SendImageButton(props) {
     const [show, setShow] = useState(false);
     const [image, setImage] = useState('')
 
     const sendImage = (e) => {
         e.preventDefault();
+        console.log(props.curChat)
+        if (image !== '') {
+            AddMessage(
+                props.curChat,
+                props.activeUser,
+                getTime(),
+                "image",
+                image
+            );
+            setShow(false);
+            props.cleanUp();
+            setTimeout(() => {setImage('')}, 300);
+        }
     }
 
     const previewImage= (e) => {
@@ -36,7 +51,7 @@ export default function SendImageButton({chat}) {
                 </Modal.Header>
                 <Modal.Body className='attachModalBody' >
                         <input id="attachImage" type="file" accept="image/*" onChange={previewImage} />
-                        <label className='attachIcon' htmlFor='attachImage'><i class="bi bi-cloud-arrow-up"/></label>
+                        <label className='attachIcon' htmlFor='attachImage'><i className="bi bi-cloud-arrow-up"/></label>
                         <br/>
                         <label className='attachLabel' htmlFor="attachImage">Click to upload your image</label>
                         <div id='imagePreview'>

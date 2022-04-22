@@ -33,21 +33,18 @@
             "Messages": [
                 {
                     "Sender": "yotam",
-                    "Reciever": "guy",
                     "Time": "05:24",
                     "Type": "text",
                     "Content": "Hi!!!!"
                 },
                 {
                     "Sender": "guy",
-                    "Reciever": "yotam",
                     "Time": "05:44",
                     "Type": "text",
                     "Content": "Wazzap man"
                 },
                 {
                     "Sender": "yotam",
-                    "Reciever": "guy",
                     "Time": "05:46",
                     "Type": "text",
                     "Content": "I'm moody af"
@@ -60,21 +57,18 @@
             "Messages": [
                 {
                     "Sender": "chen",
-                    "Reciever": "yotam",
                     "Time": "10:24",
                     "Type": "text",
                     "Content": "Hello"
                 },
                 {
                     "Sender": "chen",
-                    "Reciever": "yotam",
                     "Time": "10:25",
                     "Type": "text",
                     "Content": "How are you?"
                 },
                 {
                     "Sender": "yotam",
-                    "Reciever": "chen",
                     "Time": "11:04",
                     "Type": "text",
                     "Content": "I'm sad"

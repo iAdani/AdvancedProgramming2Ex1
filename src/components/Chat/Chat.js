@@ -12,7 +12,7 @@ import $ from 'jquery';
 import Audio from "./Audio";
 
 
-function Chat(props) {
+export default function Chat(props) {
   const [messageInput, setMessageInput] = useState("");
 
   var k = 1; // Unique key for messages
@@ -20,8 +20,12 @@ function Chat(props) {
   const footerDisplay = useEffect(() => {
     if(props.curContact === '') {
       $('#chatFooter').hide();
+      $('#chatHeader').hide();
     }
-    else $('#chatFooter').show();
+    else {
+      $('#chatFooter').show();
+      $('#chatHeader').show();
+    }
   })
 
   const sendText = (e) => {
@@ -30,7 +34,6 @@ function Chat(props) {
       AddMessage(
         props.curChat,
         props.activeUser,
-        props.curContact,
         getTime(),
         "text",
         messageInput
@@ -46,28 +49,32 @@ function Chat(props) {
     $("#chatBody").scrollTop(0);
   };
 
-  const getTime = () => {
-    const d = new Date();
-    const time =
-      String(d.getHours()).padStart(2, "0") +
-      ":" +
-      String(d.getMinutes()).padStart(2, "0");
-    return time;
-  };
+
+  const isImage = (msg) => {
+    if (msg.Type === 'image') return ''
+    return '';
+  }
 
   const isReciever = (msg) => {
-    return msg.Sender === props.activeUser ? "chat__reciever" : "";
+    return msg.Sender === props.activeUser ? "chat__sender" : "";
   };
+
+  const displatMessageContent = (msg) => {
+    if (msg.Type === "text") return <span>{msg.Content}</span>;
+    if (msg.Type === "image") return (
+      <img className="chatImage" src={msg.Content} />
+    )
+  }
 
   const displayMessages = () => {
     if (props.curChat === undefined) return <></>;
     return (
       <>
         {props.curChat.Messages.map((msg) => (
-          <p className={"chat__message " + isReciever(msg)} key={k++}>
-            {msg.Content}
+          <div className={isImage(msg) + " chat__message " + isReciever(msg)} key={k++}>
+            {displatMessageContent(msg)}
             <span className="chat__timestamp">{msg.Time}</span>
-          </p>
+          </div>
         ))}
       </>
     );
@@ -75,7 +82,7 @@ function Chat(props) {
 
   return (
     <div className="chat">
-      <div className="chat__header">
+      <div id='chatHeader' className="chat__header">
         <div className="chat__headerInfo">
           <img src={GetImage(props.curContact)} />
           <span>
@@ -90,7 +97,7 @@ function Chat(props) {
       </div>
 
       <div id='chatFooter' className={"chat__footer"}>
-        <AttachButton {...props} />
+        <AttachButton {...props} cleanUp={cleanUp} />
         <form onSubmit={(e) => sendText(e)}>
 
           <input
@@ -113,4 +120,11 @@ function Chat(props) {
   );
 }
 
-export default Chat;
+export function getTime() {
+  const d = new Date();
+  const time =
+    String(d.getHours()).padStart(2, "0") +
+    ":" +
+    String(d.getMinutes()).padStart(2, "0");
+  return time;
+};

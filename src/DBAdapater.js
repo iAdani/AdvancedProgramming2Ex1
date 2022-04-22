@@ -20,10 +20,9 @@ function AddUser(username, nickname, password, image) {
 }
 
 // Adds a message to the chat
-function AddMessage(chat, sender, reciever, time, type, content) {
+function AddMessage(chat, sender, time, type, content) {
   chat.Messages.push({
     Sender: sender,
-    Reciever: reciever,
     Time: time,
     Type: type,
     Content: content,
@@ -104,8 +103,8 @@ function GetChat(username, recipient) {
 // Returns the last message in the chat
 function GetLastMessage(chat) {
   if (chat.Messages !== undefined && chat.Messages.length > 0)
-    return chat.Messages.at(-1).Content;
-  return "";
+    return chat.Messages.at(-1);
+  return undefined;
 }
 
 export {

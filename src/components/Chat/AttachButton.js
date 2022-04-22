@@ -4,7 +4,7 @@ import { useState } from "react";
 import "./AttachButton.css";
 import SendImageButton from "./SendImageButton";
 
-function AttachButton({props}) {
+function AttachButton(props) {
     const [show, setShow] = useState(false);
 
     const sendImage = (e) => {
