@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Chat.css";
 import AttachButton from "./AttachButton";
 import {
@@ -8,12 +8,21 @@ import {
   GetImage,
 } from "../../DBAdapater";
 import SendButton from "./SendButton";
-import $ from "jquery";
+import $ from 'jquery';
+import Audio from "./Audio";
+
 
 function Chat(props) {
   const [messageInput, setMessageInput] = useState("");
 
   var k = 1; // Unique key for messages
+
+  const footerDisplay = useEffect(() => {
+    if(props.curContact === '') {
+      $('#chatFooter').hide();
+    }
+    else $('#chatFooter').show();
+  })
 
   const sendText = (e) => {
     e.preventDefault();
@@ -80,9 +89,10 @@ function Chat(props) {
         <div>{displayMessages()}</div>
       </div>
 
-      <div className={"chat__footer"}>
-        <AttachButton />
+      <div id='chatFooter' className={"chat__footer"}>
+        <AttachButton {...props} />
         <form onSubmit={(e) => sendText(e)}>
+
           <input
             value={messageInput}
             onChange={(e) => {
@@ -91,8 +101,12 @@ function Chat(props) {
             placeholder="Type a message..."
             type="text"
           />
-          <i className="bi bi-mic" />
+
+          <div id='audioButtonContainer'>
+            <button className="audioButton"><i className="bi bi-mic"/></button>
+          </div>
           <SendButton sendText={sendText} message={messageInput}></SendButton>
+
         </form>
       </div>
     </div>

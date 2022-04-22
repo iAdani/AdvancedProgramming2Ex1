@@ -112,12 +112,25 @@ p {
 }
 
 .bi-paperclip{
+    font-size: 1.5rem;
     padding: 10px;
 }
 
 .bi-mic {
-    font-size: 22px;
+    font-size: 1.5rem;
     align-items: center;
     display: flex;
-    padding-left: 10px;
+    /* padding-left: 10px; */
+}
+
+.audioButton {
+    border: none;
+}
+
+#audioButtonContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6px;
+    width: 2rem;
 }
