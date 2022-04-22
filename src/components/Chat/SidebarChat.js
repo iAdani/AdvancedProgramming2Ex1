@@ -7,10 +7,12 @@ export default function SidebarChat(props) {
   const lastMessage = (msg) => {
     if (msg === undefined) return '';
     if (msg.Type === "text") return <span>{msg.Content}</span>;
-    if (msg.Type === "image") {
-      return (
+    if (msg.Type === "image") return (
        <span><i class="bi bi-card-image" /> Image</span>
-      )} 
+      )
+      if (msg.Type === "video") return (
+       <span><i class="bi bi-film" /> Video</span>
+      )
   }
 
 

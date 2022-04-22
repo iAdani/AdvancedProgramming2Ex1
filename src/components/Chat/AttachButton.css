@@ -33,11 +33,6 @@
     top: -100em;
 }
 
-#attachImage {
-    position: fixed;
-    top: -100em;
-}
-
 .attachLabel {
     font-size: larger;
     cursor: pointer;
@@ -60,6 +55,11 @@
 .attachModalBody {
     text-align: center;
     justify-content: center;
+}
+
+.attachModalBody > input {
+    position: fixed;
+    top: -100em;
 }
 
 .closeModalButton {
@@ -87,6 +87,18 @@
     background: rgb(125, 125, 125);
 }
 
+#imagePreview {
+    display: none;
+}
+
 #imagePreview > img {
-    width: 50%;
+    width: 70%;
+}
+
+#videoPreview {
+    display: none;
+}
+
+#videoPreview > video {
+    width: 70%;
 }
