@@ -24,26 +24,8 @@ function Sidebar(props) {
       );
       setFilter(filteredContacts);
     }
-  }, [search, JSON.stringify(contacts)]); // stringify since useEffect doesn't catch array changes
-
-  const displayChats = () => {
-    if (filter !== undefined) {
-      return (
-        <>
-          {filter.map((contact) => (
-            <SidebarChat
-              setActiveContact={props.setActiveContact}
-              contact={contact}
-              nickname={GetNickname(contact)}
-              lastMessage={GetLastMessage(GetChat(props.activeUser, contact))}
-              key={contact}
-            />
-          ))}
-        </>
-      );
-    }
-    return <></>;
-  };
+    console.log("got into useEffect in sidebar.js")
+  }, [search, JSON.stringify(contacts), props.updateLastMessage]); // stringify since useEffect doesn't catch array changes
 
   return (
     <div className="sidebar">
@@ -75,7 +57,17 @@ function Sidebar(props) {
         </div>
       </div>
 
-      <div className="sidebar__chats">{displayChats()}</div>
+      <div className="sidebar__chats">
+        {filter.map((contact) => (
+          <SidebarChat
+            setActiveContact={props.setActiveContact}
+            contact={contact}
+            nickname={GetNickname(contact)}
+            lastMessage={GetLastMessage(GetChat(props.activeUser, contact))}
+            key={contact}
+          />
+        ))}
+      </div>
     </div>
   );
 }

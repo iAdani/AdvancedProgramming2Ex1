@@ -9,6 +9,7 @@ export default function ChatsScreen({ activeUser }) {
 
   const [activeContact, setActiveContact] = useState('');
   const [curChat, setCurChat] = useState(undefined);
+  const [updateLastMessage, setUpdateLastMessage] = useState(false)
   
   useEffect(() => {
     if (activeContact !== '') {
@@ -25,11 +26,14 @@ export default function ChatsScreen({ activeUser }) {
             <Sidebar
                 activeUser={activeUser}
                 activeContact={activeContact}
-                setActiveContact={setActiveContact} />
+                setActiveContact={setActiveContact}
+                updateLastMessage={updateLastMessage} />
             <Chat
                 curChat={curChat}
                 activeUser={activeUser}
-                curContact={activeContact} />
+                curContact={activeContact}
+                setUpdateLastMessage={setUpdateLastMessage}
+                updateLastMessage={updateLastMessage} />
         </div>
     );
 }
