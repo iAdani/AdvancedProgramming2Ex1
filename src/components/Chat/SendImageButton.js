@@ -10,12 +10,11 @@ import $ from 'jquery'
 
 export default function SendImageButton(props) {
     const [show, setShow] = useState(false);
-    const [image, setImage] = useState('')
+    const [image, setImage] = useState('');
 
     // Sends the image in chat
     const sendImage = (e) => {
         e.preventDefault();
-        console.log(props.curChat)
         if (image !== '') {
             AddMessage(
                 props.curChat,
@@ -26,18 +25,22 @@ export default function SendImageButton(props) {
             );
             props.cleanUp();
             close();
+        } else {
+            $('.didntUpload').show();
+            setTimeout(()=> {$('.didntUpload').hide();}, 4500);
         }
     }
 
     // Shows the image preview
     const previewImage= (e) => {
-        $('#imagePreview').show(200);
+        $('#imagePreview').show(300);
         setImage(URL.createObjectURL(e.target.files[0]));
     }
 
     // Closes the modal
     const close = () => {
         setShow(false);
+        setImage('');
         $('#imagePreview').hide(300);
     }
 
@@ -48,7 +51,7 @@ export default function SendImageButton(props) {
                     <i className="bi bi-image attachment-icon" />
                 </span>
             </li>
-            <Modal show={show} centered>
+            <Modal show={show} onHide={close} centered>
                 <Modal.Header>
                     <Modal.Title>Send an image</Modal.Title>
                 </Modal.Header>
@@ -58,10 +61,11 @@ export default function SendImageButton(props) {
                         <br/>
                         <label className='attachLabel' htmlFor="attachImage">Click to upload your image</label>
                         <div id='imagePreview'>
-                            <img src={image} />
+                            <img alt='preview' src={image} />
                         </div>
                 </Modal.Body>
                 <Modal.Footer>
+                    <span className='didntUpload'>Oops! You did not select an image! </span> 
                     <Button className="closeModalButton" onClick={close}>Cancel</Button>
                     <form onSubmit={sendImage}>
                         <SendButton />

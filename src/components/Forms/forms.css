@@ -151,3 +151,8 @@
 .red-border {
     box-shadow: 0 8px 32px 0 rgba(255, 0, 0, 0.43);
 }
+
+#invalidImage {
+    display: none;
+    font-weight: 500;
+}

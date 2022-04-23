@@ -13,10 +13,10 @@ function AddUser(username, nickname, password, image) {
     Username: username.toLowerCase(),
     Nickname: nickname,
     Password: password,
-    Image: URL.createObjectURL(image),
+    Image: image,
     LastSeen: "Now",
+    Contacts: []
   });
-  console.log(DB.Users.at(-1).Image);
 }
 
 // Adds a message to the chat
@@ -37,8 +37,10 @@ function AddContact(username, contact) {
       DB.Chats.push({
         Contact1: username,
         Contact2: contact,
-        Messages: new Array(),
+        Messages: [],
       });
+      const cont = DB.Users.find((c) => c.Username === contact)
+      cont.Contacts.push(username);
     }
   }
 }
