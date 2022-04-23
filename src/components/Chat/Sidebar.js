@@ -24,7 +24,7 @@ function Sidebar(props) {
       );
       setFilter(filteredContacts);
     }
-    console.log("got into useEffect in sidebar.js")
+    console.log("got into useEffect in sidebar.js");
   }, [search, JSON.stringify(contacts), props.updateLastMessage]); // stringify since useEffect doesn't catch array changes
 
   return (
