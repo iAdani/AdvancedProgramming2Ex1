@@ -8,17 +8,17 @@ export default function SidebarChat(props) {
     if (msg === undefined) return '';
     if (msg.Type === "text") return <span>{msg.Content}</span>;
     if (msg.Type === "image") return (
-       <span><i class="bi bi-card-image" /> Image</span>
+       <span><i className="bi bi-card-image" /> Image</span>
       )
       if (msg.Type === "video") return (
-       <span><i class="bi bi-film" /> Video</span>
+       <span><i className="bi bi-film" /> Video</span>
       )
   }
 
 
   return (
     <div className="sidebarChat" onClick={() => props.setActiveContact(props.contact.toLowerCase())}>
-        <img src={GetImage(props.contact)} />
+        <img alt={props.contact} src={GetImage(props.contact)} />
         <div className="sidebarChat__info">
           <h2>{props.nickname}</h2>
           <p>{lastMessage(props.lastMessage)}</p>

@@ -24,14 +24,13 @@ function Sidebar(props) {
       );
       setFilter(filteredContacts);
     }
-    console.log("got into useEffect in sidebar.js")
   }, [search, JSON.stringify(contacts), props.updateLastMessage]); // stringify since useEffect doesn't catch array changes
 
   return (
     <div className="sidebar">
       <div className="sidebar__header">
         <span>
-          <img src={GetImage(props.activeUser)} />
+          <img alt='profile' src={GetImage(props.activeUser)} />
           {/* <span>{GetNickname(props.activeUser)}</span> */}
         </span>
         <span>

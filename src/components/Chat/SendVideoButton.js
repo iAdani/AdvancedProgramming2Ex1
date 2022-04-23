@@ -25,18 +25,22 @@ export default function SendVideoButton(props) {
             );
             props.cleanUp();
             close();
+        } else {
+            $('.didntUpload').show();
+            setTimeout(()=> {$('.didntUpload').hide();}, 4500);
         }
     }
 
     // Shows the video preview
     const previewVideo = (e) => {
-        $('#videoPreview').show(200);
+        $('#videoPreview').show(300);
         setVideo(URL.createObjectURL(e.target.files[0]));
     }
 
     // Closes the Modal
     const close = () => {
         setShow(false);
+        setVideo('');
         $('#videoPreview').hide(300);
     }
 
@@ -47,7 +51,7 @@ export default function SendVideoButton(props) {
                     <i className="bi bi-camera-video attachment-icon" />
                 </span>
             </li>
-            <Modal show={show} centered>
+            <Modal show={show} onHide={close} centered>
                 <Modal.Header>
                     <Modal.Title>Send a video</Modal.Title>
                 </Modal.Header>
@@ -61,6 +65,7 @@ export default function SendVideoButton(props) {
                         </div>
                 </Modal.Body>
                 <Modal.Footer>
+                    <span className='didntUpload'>Oops! You did not select a video! </span> 
                     <Button className="closeModalButton" onClick={close}>Cancel</Button>
                     <form onSubmit={sendVideo}>
                         <SendButton />
