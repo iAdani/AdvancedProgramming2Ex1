@@ -1,5 +1,5 @@
 import { React, useState, createContext } from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import LoginForm from "./components/Forms/LoginForm";
 import RegisterForm from "./components/Forms/RegisterForm";
 import MainScreen from "./components/Forms/MainScreen";
@@ -14,12 +14,16 @@ export default function App() {
     return (
         <UserContext.Provider value={setActiveUser}>
             <BrowserRouter>
-                <Routes>
+                {!activeUser &&<Routes>
                     <Route path="/" element={<MainScreen />} />
                     <Route path="/login" element={<LoginForm setActiveUser={setActiveUser} />} />
                     <Route path="/register" element={<RegisterForm setActiveUser={setActiveUser} />} />
+                    <Route path="*" element = {<Navigate to="/" replace />} />
+                </Routes>}
+                {activeUser && <Routes>
                     <Route path="/chats" element={<ChatsScreen activeUser={activeUser} />} />
-                </Routes>
+                    <Route path="*" element = {<Navigate to="/chats" replace />} />
+                    </Routes>}
             </BrowserRouter>
         </UserContext.Provider>
     );
