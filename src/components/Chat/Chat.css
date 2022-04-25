@@ -67,7 +67,7 @@ p {
 }
 
 .chat__timestamp {
-    margin-top: auto;
+    margin-bottom: -7px;
     margin-left: 10px;
     font-size: xx-small;
 }
