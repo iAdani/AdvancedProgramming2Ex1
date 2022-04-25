@@ -4,7 +4,6 @@ import Modal from 'react-bootstrap/Modal';
 import SendButton from "./SendButton";
 import './AttachButton.css';
 import { AddMessage } from "../../DBAdapater";
-import { getTime } from "./Chat";
 import $ from 'jquery'
 
 
@@ -19,7 +18,6 @@ export default function SendImageButton(props) {
             AddMessage(
                 props.curChat,
                 props.activeUser,
-                getTime(),
                 "image",
                 image
             );
