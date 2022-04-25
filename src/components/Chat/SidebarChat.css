@@ -5,6 +5,7 @@
     cursor: pointer;
     border-bottom: 1px solid #f6f6f6;
     height: 8vh;
+    justify-content: space-between;
 }
 
 .sidebarChat:hover {
@@ -20,8 +21,21 @@
     margin-left: 15px;
 }
 
-.sidebarChat > img {
+.sidebarChat > span > img {
     height: 80%;
-    /* max-width: 200px !important; */
+    max-width: 60px !important;
     clip-path: circle();
+    /* display: block; */
+    /* object-fit: contain; */
+}
+
+.lastMessageTime {
+    display: flex;
+    justify-content: flex-end;
+    font-size: small;
+}
+
+.sidebarChat > span {
+    justify-content: space-between;
+    display: flex;
 }
