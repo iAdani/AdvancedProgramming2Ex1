@@ -5,7 +5,6 @@ import $ from "jquery";
 import SendButton from "./SendButton";
 import "./AttachButton.css";
 import { AddMessage } from "../../DBAdapater";
-import { getTime } from "./Chat";
 
 export default function SendVideoButton(props) {
   const [show, setShow] = useState(false);
@@ -14,9 +13,8 @@ export default function SendVideoButton(props) {
   // Sends the video in chat
   const sendVideo = (e) => {
     e.preventDefault();
-    console.log(props.curChat);
     if (video !== "") {
-      AddMessage(props.curChat, props.activeUser, getTime(), "video", video);
+      AddMessage(props.curChat, props.activeUser, "video", video);
       props.cleanUp();
       close();
     }

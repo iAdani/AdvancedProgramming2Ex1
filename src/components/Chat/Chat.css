@@ -53,11 +53,11 @@ p {
     background-color: #ffffff;
     width: fit-content;
     border-radius: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
     justify-content: end;
     align-items: flex-start;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .chat__sender {
@@ -67,6 +67,7 @@ p {
 }
 
 .chat__timestamp {
+    margin-bottom: -7px;
     margin-left: 10px;
     font-size: xx-small;
 }
@@ -150,4 +151,23 @@ p {
     max-width: 25vw;
     max-height: 25vh;
     margin-bottom: 5px;
+}
+
+.chatAudio {
+    height: 30px;
+    max-width:15rem;
+}
+
+.audioAvatar {
+    position: relative;
+    height: 40px;
+    margin-right: -5px;
+    clip-path: circle();
+}
+
+.chatAudio::-webkit-media-controls-panel {
+    background-color: #dcf8c6;
+    margin-top: -5px;
+    padding-left: px;
+    size: small;
 }
