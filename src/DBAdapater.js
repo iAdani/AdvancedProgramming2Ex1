@@ -15,7 +15,7 @@ function AddUser(username, nickname, password, image) {
     Password: password,
     Image: image,
     LastSeen: "Now",
-    Contacts: []
+    Contacts: [],
   });
 }
 
@@ -39,7 +39,7 @@ function AddContact(username, contact) {
         Contact2: contact,
         Messages: [],
       });
-      const cont = DB.Users.find((c) => c.Username === contact)
+      const cont = DB.Users.find((c) => c.Username === contact);
       cont.Contacts.push(username);
     }
   }

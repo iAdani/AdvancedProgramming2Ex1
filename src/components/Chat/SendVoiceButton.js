@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./SendVoiceButton.css";
 
 export default function SendvoiceMessageButton(props) {
-  const [voiceURL, setVoiceURL] = useState(null);
   const [mediaRecorder, setMediaRecorder] = useState(null);
   const recordingStarted = mediaRecorder !== null;
 
@@ -25,7 +24,6 @@ export default function SendvoiceMessageButton(props) {
           className="voiceButton"
           onClick={(e) => {
             mediaRecorder.stop().then((blob) => {
-              debugger;
               props.sendMessage(e, "audio", URL.createObjectURL(blob));
               setMediaRecorder(null);
             });

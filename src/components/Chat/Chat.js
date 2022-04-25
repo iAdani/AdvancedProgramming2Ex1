@@ -18,7 +18,6 @@ export default function Chat(props) {
 
   // Sends text message to the chat
   const sendMessage = (e, type, content) => {
-    debugger;
     e.preventDefault();
     if (content !== "") {
       AddMessage(props.curChat, props.activeUser, type, content);
@@ -49,7 +48,6 @@ export default function Chat(props) {
         <video className="chatVideo" src={msg.Content} controls="controls" />
       );
     else {
-      debugger;
       return (
         <>
           <audio className="chatAudio" controls>

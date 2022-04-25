@@ -25,3 +25,13 @@
     /* max-width: 200px !important; */
     clip-path: circle();
 }
+
+span.lastmessage-timestamp {
+    /* position: relative; left: 80px; top: -54px; */
+    font-size: small;
+}
+
+span.lastmessage-text {
+    position: fixed;
+    margin-right: auto;
+}

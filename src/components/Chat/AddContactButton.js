@@ -12,7 +12,7 @@ function AddContactButton(props) {
   }, [contact]);
 
   const addContact = () => {
-    if (UserExists(contact)) {
+    if (UserExists(contact) && props.activeUser !== contact) {
       AddContact(props.activeUser, contact);
       props.setActiveContact(contact);
     }
