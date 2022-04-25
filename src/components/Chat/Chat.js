@@ -18,7 +18,7 @@ export default function Chat(props) {
 
   // Sends text message to the chat
   const sendMessage = (e, type, content) => {
-    debugger;
+    //debugger;
     e.preventDefault();
     if (content !== "") {
       AddMessage(props.curChat, props.activeUser, type, content);

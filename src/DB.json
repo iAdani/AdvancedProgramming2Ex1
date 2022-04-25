@@ -1,77 +1,162 @@
 {
     "Users": [
         {
-            "Username": "guy",
-            "Nickname": "iAdani",
-            "Password": "77777",
-            "Image": "/images/gpic.jpg",
-            "LastSeen": "Today, 05:44",
-            "Contacts": ["yotam"]
+            "Username": "fifty",
+            "Nickname": "50 cent",
+            "Password": "505050",
+            "Image": "/images/fcentpic.jpg",
+            "LastSeen": "Today, 19:38",
+            "Contacts": ["chen", "eminem", "snoop"]
         },
         {
-            "Username": "chen",
-            "Nickname": "Chnana",
-            "Password": "55555",
-            "Image": "/images/cpic.jpg",
-            "LastSeen": "Today, 10:44",
-            "Contacts": ["yotam"]
+            "Username": "eminem",
+            "Nickname": "slim shady",
+            "Password": "11111",
+            "Image": "/images/slimshadypic.jpg",
+            "LastSeen": "Today, 21:24",
+            "Contacts": ["snoop"]
         },
         {
-            "Username": "yotam",
-            "Nickname": "Yotatm",
-            "Password": "12345",
-            "Image": "/images/ypic.jpg",
-            "LastSeen": "Today, 07:44",
-            "Contacts": ["guy", "chen"]
+            "Username": "snoop",
+            "Nickname": "snoop dogg",
+            "Password": "22222",
+            "Image": "/images/snoopdogpic.jpg",
+            "LastSeen": "Today, 21:51",
+            "Contacts": ["fifty", "eminem", "tupac", "chris", "drake"]
+        },
+        {
+            "Username": "tupac",
+            "Nickname": "2pac",
+            "Password": "33333",
+            "Image": "/images/tupacpic.jpg",
+            "LastSeen": "Today, 22:36",
+            "Contacts": ["snoop"]
+        },
+        {
+            "Username": "chris",
+            "Nickname": "chris brown",
+            "Password": "44444",
+            "Image": "/images/chrispic.jpg",
+            "LastSeen": "Today, 22:51",
+            "Contacts": ["snoop"]
+        },
+        {
+            "Username": "drake",
+            "Nickname": "drizzy drake",
+            "Password": "66666",
+            "Image": "/images/drakepic.jpg",
+            "LastSeen": "Today, 23:01",
+            "Contacts": ["snoop"]
         }
     ],
 
     "Chats": [
         {
-            "Contact1": "guy",
-            "Contact2": "yotam",
+            "Contact1": "snoop",
+            "Contact2": "fifty",
             "Messages": [
                 {
-                    "Sender": "yotam",
-                    "Time": "05:24",
-                    "Type": "text",
-                    "Content": "Hi!!!!"
+                    "Sender": "fifty",
+                    "Time": "21:04",
+                    "Type": "video",
+                    "Content": "/messages/candyshop.mp4"
                 },
                 {
-                    "Sender": "guy",
-                    "Time": "05:44",
+                    "Sender": "snoop",
+                    "Time": "21:10",
                     "Type": "text",
-                    "Content": "Wazzap man"
+                    "Content": "k cool see u there"
                 },
                 {
-                    "Sender": "yotam",
-                    "Time": "05:46",
+                    "Sender": "snoop",
+                    "Time": "21:44",
+                    "Type": "video",
+                    "Content": "/messages/50snoop.mp4"
+                }
+                ,{
+                    "Sender": "snoop",
+                    "Time": "21:45",
                     "Type": "text",
-                    "Content": "I'm moody af"
+                    "Content": "remember when we were making fun of new rappers"
+                }
+                ,
+                {
+                    "Sender": "snoop",
+                    "Time": "21:45",
+                    "Type": "audio",
+                    "Content": "/messages/audio.mp3"
                 }
             ]
         },
         {
-            "Contact1": "chen",
-            "Contact2": "yotam",
+            "Contact1": "snoop",
+            "Contact2": "eminem",
             "Messages": [
                 {
-                    "Sender": "chen",
-                    "Time": "10:24",
+                    "Sender": "eminem",
+                    "Time": "21:29",
                     "Type": "text",
-                    "Content": "Hello"
+                    "Content": "remember u diss me"
                 },
                 {
-                    "Sender": "chen",
-                    "Time": "10:25",
+                    "Sender": "snoop",
+                    "Time": "21:30",
                     "Type": "text",
-                    "Content": "How are you?"
+                    "Content": "but now we're cool homie"
                 },
                 {
-                    "Sender": "yotam",
-                    "Time": "11:04",
+                    "Sender": "snoop",
+                    "Time": "21:31",
+                    "Type": "image",
+                    "Content": "/messages/snoopeminem.jpg"
+                }
+            ]
+        },
+        {
+            "Contact1": "snoop",
+            "Contact2": "tupac",
+            "Messages": [
+                {
+                    "Sender": "snoop",
+                    "Time": "22:46",
+                    "Type": "image",
+                    "Content": "/messages/snooptupac.jpg"
+                },
+                {
+                    "Sender": "snoop",
+                    "Time": "22:46",
                     "Type": "text",
-                    "Content": "I'm sad"
+                    "Content": "miss u bro"
+                }
+            ]
+        },
+        {
+            "Contact1": "snoop",
+            "Contact2": "chris",
+            "Messages": [
+                {
+                    "Sender": "chris",
+                    "Time": "22:54",
+                    "Type": "image",
+                    "Content": "/messages/chrisandsnoop.jpg"
+                },
+                {
+                    "Sender": "chris",
+                    "Time": "22:55",
+                    "Type": "text",
+                    "Content": "what u up to"
+                }
+            ]
+        },
+        {
+            "Contact1": "snoop",
+            "Contact2": "drake",
+            "Messages": [
+                {
+                    "Sender": "snoop",
+                    "Time": "22:58",
+                    "Type": "text",
+                    "Content": "don't forget to put your money in the grave"
                 }
             ]
         }

@@ -7,12 +7,12 @@ function AddContactButton(props) {
   const [contact, setContact] = useState("");
 
   useEffect(() => {
-    var temp = !UserExists(contact);
+    var temp = (!UserExists(contact) || contact===props.activeUser);
     setDisabled(temp);
   }, [contact]);
 
   const addContact = () => {
-    if (UserExists(contact)) {
+    if (UserExists(contact) && contact!==props.activeUser) {
       AddContact(props.activeUser, contact);
       props.setActiveContact(contact);
     }
