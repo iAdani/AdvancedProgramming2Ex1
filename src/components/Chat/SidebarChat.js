@@ -5,7 +5,7 @@ import { GetImage } from "../../DBAdapater";
 export default function SidebarChat(props) {
   const lastMessage = (msg) => {
     if (msg === undefined) return "";
-    if (msg.Type === "text") return <span>{msg.Content.length<43 ? msg.Content : msg.Content.substring(0,43) + "..."}</span>;
+    if (msg.Type === "text") return <span className="sidebar__overflow">{msg.Content.length<43 ? msg.Content : msg.Content.substring(0,43) + "..."}</span>;
     if (msg.Type === "image")
       return (
         <span>

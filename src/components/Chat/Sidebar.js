@@ -26,11 +26,31 @@ function Sidebar(props) {
     }
   }, [search, JSON.stringify(contacts), props.updateLastMessage]); // stringify since useEffect doesn't catch array changes
 
+  const sortContacts = (contactA, contactB) => {
+
+    // to be implemented
+
+    /* temporarily deactivated, need to change message.Time definition
+    debugger;
+    const aLastMessageTime = GetLastMessage(
+      GetChat(props.activeUser, contactA)
+    ).Time;
+    const bLastMessageTime = GetLastMessage(
+      GetChat(props.activeUser, contactB)
+    ).Time;
+    return aLastMessageTime < bLastMessageTime
+      ? 1
+      : aLastMessageTime > bLastMessageTime
+      ? -1
+      : 0;
+    */
+  };
+
   return (
     <div className="sidebar">
       <div className="sidebar__header">
         <span>
-          <img alt='profile' src={GetImage(props.activeUser)} />
+          <img alt="profile" src={GetImage(props.activeUser)} />
           {/* <span>{GetNickname(props.activeUser)}</span> */}
         </span>
         <span>
@@ -57,7 +77,7 @@ function Sidebar(props) {
       </div>
 
       <div className="sidebar__chats">
-        {filter.map((contact) => (
+        {filter.sort(sortContacts).map((contact) => (
           <SidebarChat
             setActiveContact={props.setActiveContact}
             contact={contact}

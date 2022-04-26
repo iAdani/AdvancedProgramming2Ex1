@@ -155,13 +155,17 @@ p {
     margin-bottom: 5px;
 }
 
-.chatAudio {
-    height: 30px;
-    max-width:15rem;
+.audio__message {
+    flex-direction: row;
+}
+
+.message__text {
+    max-width: 23vw;
+    word-wrap: break-word;
 }
 
 .audioAvatar {
-    position: relative;
+    position: relative; top: -10px;
     height: 40px;
     margin-right: -5px;
     clip-path: circle();
