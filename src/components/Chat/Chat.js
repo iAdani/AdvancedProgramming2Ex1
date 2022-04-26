@@ -18,7 +18,7 @@ export default function Chat(props) {
 
   // Sends text message to the chat
   const sendMessage = (e, type, content) => {
-    //debugger;
+
     e.preventDefault();
     if (content !== "") {
       AddMessage(props.curChat, props.activeUser, type, content);
@@ -41,7 +41,7 @@ export default function Chat(props) {
 
   // Displays the message by type
   const displayMessageContent = (msg) => {
-    if (msg.Type === "text") return <span>{msg.Content}</span>;
+    if (msg.Type === "text") return <span className="message__text">{msg.Content}</span>;
     else if (msg.Type === "image")
       return <img className="chatImage" src={msg.Content} />;
     else if (msg.Type === "video")
@@ -49,7 +49,6 @@ export default function Chat(props) {
         <video className="chatVideo" src={msg.Content} controls="controls" />
       );
     else {
-      debugger;
       return (
         <>
           <audio className="chatAudio" controls>
@@ -72,7 +71,7 @@ export default function Chat(props) {
     ) : (
       <>
         {props.curChat.Messages.map((msg) => (
-          <div className={"chat__message " + isSender(msg)} key={k++}>
+          <div className={"chat__message " + isSender(msg) +" " + msg.Type + "__message"} key={k++}>
             {displayMessageContent(msg)}
             <span className="chat__timestamp">{msg.Time}</span>
           </div>

@@ -39,3 +39,11 @@
     justify-content: space-between;
     display: flex;
 }
+
+.sidebar__overflow {
+    display: block;
+    width: 15vw;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
