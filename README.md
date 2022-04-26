@@ -23,6 +23,8 @@ A basic clone of WhatsApp Web Application using React
 `npm i react-bootstrap bootstrap`  
 `npm i jquery`
 
+* run with `npm start`
+
 ## Login
 hardcoded data information for logging in:
 | **Username**     | **Password**      | 
