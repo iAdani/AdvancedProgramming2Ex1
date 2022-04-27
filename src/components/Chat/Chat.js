@@ -9,16 +9,33 @@ import {
 import AttachButton from "./AttachButton";
 import "./Chat.css";
 import SendButton from "./SendButton";
-import SendVoiceButton from "./SendVoiceButton";
+// import SendVoiceButton from "./SendVoiceButton";
+import SendVoiceButton2 from "./SendVoiceButton2";
 
 export default function Chat(props) {
   const [messageInput, setMessageInput] = useState("");
-  const typing = messageInput !== "";
+  const [recordInput, setRecordInput] = useState("");
+
   let k = 1; // Unique key for messages
 
-  // Sends text message to the chat
-  const sendMessage = (e, type, content) => {
+  const submit = (e) => {
+    if (recordInput !== ""){
+      sendMessage(e, "audio", recordInput);
+      $('#voiceControl').hide(250);
+      $('#validButton').hide();
+      $('#pauseAudioButton').hide();
+      $('#playAudioButton').hide();
+      $('#stopButton').css('display', 'inline-block');
+      $('#playRecord').css('color', 'black');
+      $('#voiceTime').html('00:00');
+      $('#chatInput').attr('disabled', false);
+      setRecordInput('');
+    } else sendMessage(e, "text", messageInput);
+    
+  }
 
+  // Sends a message to the chat
+  const sendMessage = (e, type, content) => {
     e.preventDefault();
     if (content !== "") {
       AddMessage(props.curChat, props.activeUser, type, content);
@@ -43,7 +60,7 @@ export default function Chat(props) {
   const displayMessageContent = (msg) => {
     if (msg.Type === "text") return <span className="message__text">{msg.Content}</span>;
     else if (msg.Type === "image")
-      return <img className="chatImage" src={msg.Content} />;
+      return <img className="chatImage" alt='' src={msg.Content} />;
     else if (msg.Type === "video")
       return (
         <video className="chatVideo" src={msg.Content} controls="controls" />
@@ -86,7 +103,7 @@ export default function Chat(props) {
         <div className="chat">
           <div id="chatHeader" className="chat__header">
             <div className="chat__headerInfo">
-              <img src={GetImage(props.curContact)} />
+              <img src={GetImage(props.curContact)} alt=''/>
               <span>
                 <p>{GetNickname(props.curContact)}</p>
                 <span>{GetLastSeen(props.curContact)}</span>
@@ -100,14 +117,9 @@ export default function Chat(props) {
 
           <div id="chatFooter" className={"chat__footer"}>
             <AttachButton {...props} cleanUp={cleanUp} />
-            <form
-              onSubmit={(e) => {
-                {
-                  sendMessage(e, "text", messageInput);
-                }
-              }}
-            >
+            <form onSubmit={submit}>
               <input
+                id='chatInput'
                 value={messageInput}
                 onChange={(e) => {
                   setMessageInput(e.target.value);
@@ -115,9 +127,11 @@ export default function Chat(props) {
                 placeholder="Type a message..."
                 type="text"
               />
-              {typing ? <SendButton /> : <></>}
+              <SendVoiceButton2 input={recordInput} setInput={setRecordInput} />
+                            
+              {/* <SendVoiceButton sendMessage={sendMessage} /> */}
+              <SendButton />
             </form>
-            {!typing ? <SendVoiceButton sendMessage={sendMessage} /> : <></>}
           </div>
         </div>
       ) : (
