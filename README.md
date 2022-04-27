@@ -15,15 +15,13 @@ A basic clone of WhatsApp Web Application using React
 * jquery
 
 ## Run Locally 👨🏽‍💻
+* Install Node.js and npm with - https://nodejs.org/en/
 * Clone the project:
 `git clone https://github.com/iAdani/AdvancedProgramming2Ex1.git`
-* Install dependencies:  
+* `cd` AdvancedProgramming2Ex1
+* Now run these commands:  
 `npm install`  
-`npm i react-router-dom`  
-`npm i react-bootstrap bootstrap`  
-`npm i jquery`
-
-* run with `npm start`
+`npm start`
 
 ## Login 🔑
 hardcoded data information for logging in:
