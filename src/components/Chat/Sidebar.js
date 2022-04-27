@@ -27,11 +27,7 @@ function Sidebar(props) {
   }, [search, JSON.stringify(contacts), props.updateLastMessage]); // stringify since useEffect doesn't catch array changes
 
   const sortContacts = (contactA, contactB) => {
-
-    // to be implemented
-
-    /* temporarily deactivated, need to change message.Time definition
-    debugger;
+    //temporarily deactivated, need to change message.Time definition
     const aLastMessageTime = GetLastMessage(
       GetChat(props.activeUser, contactA)
     ).Time;
@@ -43,7 +39,6 @@ function Sidebar(props) {
       : aLastMessageTime > bLastMessageTime
       ? -1
       : 0;
-    */
   };
 
   return (

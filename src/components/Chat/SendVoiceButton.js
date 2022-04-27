@@ -25,7 +25,6 @@ export default function SendvoiceMessageButton(props) {
           className="voiceButton"
           onClick={(e) => {
             mediaRecorder.stop().then((blob) => {
-              debugger;
               props.sendMessage(e, "audio", URL.createObjectURL(blob));
               setMediaRecorder(null);
             });
