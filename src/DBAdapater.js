@@ -109,8 +109,8 @@ function GetLastMessage(chat) {
   return undefined;
 }
 
-function GetTime(d) {
-  // const d = new Date();
+function GetTime() {
+  const d = new Date();
   const time =
     String(d.getHours()).padStart(2, "0") +
     ":" +
