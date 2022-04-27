@@ -16,7 +16,6 @@
     overflow: hidden;
     -webkit-transition: all 0.2s;
     transition: all 0.2s;
-    margin-left: 10px;
 }
 
 .send-button span {
