@@ -8,6 +8,7 @@ export default function SendVoiceButton2(props) {
     let recorder = useRef();                        // MediaRecorder
     let recording = useRef();                       // Currently recording
     let recordTime = useRef({count: 0});            // Recorded time
+    let currentStream = useRef();
 
     let chunks = [];                                // Array of chunks of audio data
 
@@ -17,8 +18,15 @@ export default function SendVoiceButton2(props) {
         $('#chatInput').attr('disabled', true);
         navigator.mediaDevices.getUserMedia({audio: true}).then(function(stream) {
             chunks = [];
+            currentStream = stream;
             recorder = new MediaRecorder(stream);
             recorder.addEventListener("dataavailable", (e) => {
+                if (currentStream !== stream){
+                    recordTime.current.count = 0;
+                    stream.getTracks().forEach(e => { e.stop(); });
+                    $('#voiceTime').html('00:00');
+                    return;
+                }
                 // update time
                 $('#voiceTime').html(showTime(recordTime.current.count++));
                 // add stream data to chunks
@@ -67,6 +75,7 @@ export default function SendVoiceButton2(props) {
 
     // Deletes the record
     const trashRecord = () => {
+        debugger;
         $('#playRecord').css('color', 'black');
         $('#stopButton').css('display', 'inline-block');
         $('#validButton').hide();

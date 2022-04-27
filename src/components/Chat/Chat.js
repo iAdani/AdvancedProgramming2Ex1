@@ -30,7 +30,7 @@ export default function Chat(props) {
       $('#voiceTime').html('00:00');
       $('#chatInput').attr('disabled', false);
       setRecordInput('');
-    } else sendMessage(e, "text", messageInput);
+    } else if (messageInput !== '') sendMessage(e, "text", messageInput);
     
   }
 
@@ -127,8 +127,11 @@ export default function Chat(props) {
                 placeholder="Type a message..."
                 type="text"
               />
-              <SendVoiceButton2 input={recordInput} setInput={setRecordInput} />
-                            
+              <SendVoiceButton2 
+                input={recordInput}
+                setInput={setRecordInput}
+                setMessageInput={setMessageInput} 
+                />             
               {/* <SendVoiceButton sendMessage={sendMessage} /> */}
               <SendButton />
             </form>
