@@ -1,7 +1,7 @@
-# WhatsApp Web clone
+# WhatsApp Web clone 💻
 A basic clone of WhatsApp Web Application using React
 
-## Features
+## Features 💫
 * Fully responsive
 * Fast searching for contacts
 * Displays last seen and timestamps
@@ -9,12 +9,12 @@ A basic clone of WhatsApp Web Application using React
 * Log out button
 * Media supported
 
-## Dependencies
+## Dependencies 🗒
 * react-router-dom
 * react-bootstrap
 * jquery
 
-## Run Locally
+## Run Locally 👨🏽‍💻
 * Clone the project:
 `git clone https://github.com/iAdani/AdvancedProgramming2Ex1.git`
 * Install dependencies:  
@@ -25,7 +25,7 @@ A basic clone of WhatsApp Web Application using React
 
 * run with `npm start`
 
-## Login
+## Login 🔑
 hardcoded data information for logging in:
 | **Username**     | **Password**      | 
 | ------------- |-------------- |
