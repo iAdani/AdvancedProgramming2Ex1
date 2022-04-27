@@ -67,7 +67,6 @@ export default function SendVoiceButton2(props) {
 
     // Deletes the record
     const trashRecord = () => {
-        console.log(recorder)
         $('#playRecord').css('color', 'black');
         $('#stopButton').css('display', 'inline-block');
         $('#validButton').hide();
@@ -84,22 +83,17 @@ export default function SendVoiceButton2(props) {
 
     // Records the voice message
     const recordAudio = () => {
+        if (recording === true || props.input !== '') return;
         showPanel();
-        if (recording === true){
-            trashRecord();
-        }
-        else {
-            recording = true;
-            startRecording();
-            $('#resumeButton').hide()
-            $('#pauseAudioButton').hide();
-            $('#playAudioButton').hide();
-            $('#pauseButton').css('display', 'inline-block');
-            $('#playRecord').css('color', 'red');
-            $('#resumeButton').attr('disabled', false);
-            $('#pauseButton').attr('disabled', false);
-        }
-        
+        recording = true;
+        startRecording();
+        $('#resumeButton').hide()
+        $('#pauseAudioButton').hide();
+        $('#playAudioButton').hide();
+        $('#pauseButton').css('display', 'inline-block');
+        $('#playRecord').css('color', 'red');
+        $('#resumeButton').attr('disabled', false);
+        $('#pauseButton').attr('disabled', false);
     }
 
     // Displays the voice control panel
