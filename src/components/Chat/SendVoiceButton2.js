@@ -75,7 +75,6 @@ export default function SendVoiceButton2(props) {
 
     // Deletes the record
     const trashRecord = () => {
-        debugger;
         $('#playRecord').css('color', 'black');
         $('#stopButton').css('display', 'inline-block');
         $('#validButton').hide();
