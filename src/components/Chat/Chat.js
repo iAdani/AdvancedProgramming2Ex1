@@ -19,6 +19,7 @@ export default function Chat(props) {
   let k = 1; // Unique key for messages
 
   const submit = (e) => {
+    e.preventDefault();
     if (recordInput !== ""){
       sendMessage(e, "audio", recordInput);
       $('#voiceControl').hide(250);
