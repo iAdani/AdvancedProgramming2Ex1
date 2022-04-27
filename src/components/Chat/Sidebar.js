@@ -31,7 +31,6 @@ function Sidebar(props) {
     // to be implemented
 
     /* temporarily deactivated, need to change message.Time definition
-    debugger;
     const aLastMessageTime = GetLastMessage(
       GetChat(props.activeUser, contactA)
     ).Time;
