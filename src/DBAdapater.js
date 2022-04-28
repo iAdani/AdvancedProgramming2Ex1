@@ -23,7 +23,7 @@ function AddUser(username, nickname, password, image) {
 function AddMessage(chat, sender, type, content) {
   chat.Messages.push({
     Sender: sender,
-    Time: GetTime(),
+    Time: new Date().toJSON(),
     Type: type,
     Content: content,
   });
@@ -109,8 +109,8 @@ function GetLastMessage(chat) {
   return undefined;
 }
 
-function GetTime() {
-  const d = new Date();
+function GetTime(date) {
+  const d = new Date(date);
   const time =
     String(d.getHours()).padStart(2, "0") +
     ":" +
@@ -130,4 +130,5 @@ export {
   GetContacts,
   GetLastMessage,
   GetLastSeen,
+  GetTime
 };

@@ -57,32 +57,32 @@
             "Messages": [
                 {
                     "Sender": "fifty",
-                    "Time": "21:04",
+                    "Time": "2022-01-23T09:04:45.904Z",
                     "Type": "video",
                     "Content": "/messages/candyshop.mp4"
                 },
                 {
                     "Sender": "snoop",
-                    "Time": "21:10",
+                    "Time": "2022-01-23T09:04:45.904Z",
                     "Type": "text",
                     "Content": "k cool see u there"
                 },
                 {
                     "Sender": "snoop",
-                    "Time": "21:44",
+                    "Time": "2022-01-23T09:04:45.904Z",
                     "Type": "video",
                     "Content": "/messages/50snoop.mp4"
                 }
                 ,{
                     "Sender": "snoop",
-                    "Time": "21:45",
+                    "Time": "2022-01-23T09:04:45.904Z",
                     "Type": "text",
                     "Content": "remember when we were making fun of new rappers"
                 }
                 ,
                 {
                     "Sender": "snoop",
-                    "Time": "21:45",
+                    "Time": "2022-01-23T09:04:45.904Z",
                     "Type": "audio",
                     "Content": "/messages/snoop-dogg-smoke-weed-everyday.mp3"
                 }
@@ -94,19 +94,19 @@
             "Messages": [
                 {
                     "Sender": "eminem",
-                    "Time": "21:29",
+                    "Time": "2022-01-23T09:04:45.904Z",
                     "Type": "text",
                     "Content": "remember u diss me"
                 },
                 {
                     "Sender": "snoop",
-                    "Time": "21:30",
+                    "Time": "2022-01-23T09:04:45.904Z",
                     "Type": "text",
                     "Content": "but now we're cool homie"
                 },
                 {
                     "Sender": "snoop",
-                    "Time": "21:31",
+                    "Time": "2022-01-23T09:04:45.904Z",
                     "Type": "image",
                     "Content": "/messages/snoopeminem.jpg"
                 }
@@ -118,13 +118,13 @@
             "Messages": [
                 {
                     "Sender": "snoop",
-                    "Time": "22:46",
+                    "Time": "2022-01-23T09:04:45.904Z",
                     "Type": "image",
                     "Content": "/messages/2andsnoop.png"
                 },
                 {
                     "Sender": "snoop",
-                    "Time": "22:46",
+                    "Time": "2022-01-23T09:04:45.904Z",
                     "Type": "text",
                     "Content": "miss u bro"
                 }
@@ -136,13 +136,13 @@
             "Messages": [
                 {
                     "Sender": "chris",
-                    "Time": "22:54",
+                    "Time": "2022-01-23T09:04:45.904Z",
                     "Type": "image",
                     "Content": "/messages/chrisandsnoop.jpg"
                 },
                 {
                     "Sender": "chris",
-                    "Time": "22:55",
+                    "Time": "2022-01-23T09:04:45.904Z",
                     "Type": "text",
                     "Content": "what u up to"
                 }
@@ -154,7 +154,7 @@
             "Messages": [
                 {
                     "Sender": "snoop",
-                    "Time": "22:58",
+                    "Time": "2022-01-23T09:04:45.904Z",
                     "Type": "text",
                     "Content": "don't forget to put your money in the grave"
                 }
