@@ -28,13 +28,6 @@ export default function SidebarChat(props) {
 
   const lastMessageTime = props.lastMessage === undefined ? "" : GetTime(props.lastMessage.Time);
 
-  // if(props.lastMessage > 43) {
-  //   text = snippet.substring(0, 1024)//cuts to 1024
-  //   last = text.lastIndexOf(" ")//gets last space (to avoid cutting the middle of a word)
-  //   text = text.substring(0, last)//cuts from last space (to avoid cutting the middle of a word)
-  //   text = text + ` (...)`//adds (...) at the end to show that it's cut
-  //   }
-
   return (
     <div
       className="sidebarChat"
@@ -52,10 +45,4 @@ export default function SidebarChat(props) {
       </span>
     </div>
   );
-}
-
-{
-  /* <div style={{ display: "flex" , justifyContent : "flex-end", width : "100%"}}>
-          <div style={{ display: "flex" }}>{lastMessageTime}</div>
-        </div> */
 }
