@@ -1,10 +1,9 @@
+import $ from "jquery";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
-import $ from "jquery";
-import SendButton from "./SendButton";
 import "./AttachButton.css";
-import { AddMessage } from "../../DBAdapater";
+import SendButton from "./SendButton";
 
 export default function SendVideoButton(props) {
   const [show, setShow] = useState(false);
@@ -12,10 +11,8 @@ export default function SendVideoButton(props) {
 
   // Sends the video in chat
   const sendVideo = (e) => {
-    e.preventDefault();
     if (video !== "") {
-      AddMessage(props.curChat, props.activeUser, "video", video);
-      props.cleanUp();
+      props.sendMessage(e, "video", video);
       close();
     }
   };
@@ -54,7 +51,7 @@ export default function SendVideoButton(props) {
             accept="video/*"
             onChange={previewVideo}
           />
-          <label className="attachIcon" htmlFor="attachVideo">
+          <label className="attachIcon" htmlFor={"attachVideo"}>
             <i className="bi bi-cloud-arrow-up" />
           </label>
           <br />
