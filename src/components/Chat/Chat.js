@@ -69,7 +69,7 @@ export default function Chat(props) {
     else {
       return (
         <>
-          <audio className="chatAudio" controls>
+          <audio className={`${isSender(msg)==="chat__sender" ? "chatAudioSender" : "chatAudioReciever"}`} controls>
             <source src={msg.Content} type="audio/mp3" />
           </audio>
           <img
