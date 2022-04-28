@@ -8,6 +8,7 @@ A basic clone of WhatsApp Web Application using React
 * Adding new contacts
 * Log out button
 * Media supported
+* Run-Time Messages - log into the other contact and view run-time sent messages
 
 ## Dependencies 🗒
 * react-router-dom
