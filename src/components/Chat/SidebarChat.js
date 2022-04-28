@@ -1,6 +1,6 @@
 import React from "react";
 import "./SidebarChat.css";
-import { GetImage } from "../../DBAdapater";
+import { GetImage, GetTime } from "../../DBAdapater";
 
 export default function SidebarChat(props) {
   const lastMessage = (msg) => {
@@ -26,7 +26,7 @@ export default function SidebarChat(props) {
       );
   };
 
-  const lastMessageTime = props.lastMessage.Time;
+  const lastMessageTime = GetTime(props.lastMessage.Time);
 
   // if(props.lastMessage > 43) {
   //   text = snippet.substring(0, 1024)//cuts to 1024

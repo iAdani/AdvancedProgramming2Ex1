@@ -5,6 +5,7 @@ import {
   GetImage,
   GetLastSeen,
   GetNickname,
+  GetTime
 } from "../../DBAdapater";
 import AttachButton from "./AttachButton";
 import "./Chat.css";
@@ -91,7 +92,7 @@ export default function Chat(props) {
         {props.curChat.Messages.map((msg) => (
           <div className={"chat__message " + isSender(msg) +" " + msg.Type + "__message"} key={k++}>
             {displayMessageContent(msg)}
-            <span className="chat__timestamp">{msg.Time}</span>
+            <span className="chat__timestamp">{GetTime(msg.Time)}</span>
           </div>
         ))}
       </>
