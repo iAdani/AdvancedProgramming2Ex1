@@ -16,9 +16,9 @@
     /* background: rgba(255, 255, 255, 0.55); */
     background-color: whitesmoke;
     display: inline-block;
-    box-shadow: 0 0 0 0.2rem #9e9e9f;
+    box-shadow: 0 0 0 0.2rem #cad4b2;
     backdrop-filter: blur(12rem);
-    border-color: #9e9e9f;
+    border-color: #cad4b2;
     font-family: 'Poppins', sans-serif;
     text-indent:8px;
 }
