@@ -34,13 +34,13 @@ function AddContact(username, contact) {
     const user = DB.Users.find((user) => user.Username === username);
     if (!user.Contacts.find((t) => t === contact)) {
       user.Contacts.push(contact);
+      const cont = DB.Users.find((c) => c.Username === contact)
+      cont.Contacts.push(username);
       DB.Chats.push({
         Contact1: username,
         Contact2: contact,
         Messages: [],
       });
-      const cont = DB.Users.find((c) => c.Username === contact)
-      cont.Contacts.push(username);
     }
   }
 }

@@ -26,7 +26,7 @@ export default function SidebarChat(props) {
       );
   };
 
-  const lastMessageTime = GetTime(props.lastMessage.Time);
+  const lastMessageTime = props.lastMessage === undefined ? "" : GetTime(props.lastMessage.Time);
 
   // if(props.lastMessage > 43) {
   //   text = snippet.substring(0, 1024)//cuts to 1024
