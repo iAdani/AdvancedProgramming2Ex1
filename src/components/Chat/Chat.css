@@ -172,8 +172,15 @@ p {
     clip-path: circle();
 }
 
-.chatAudio::-webkit-media-controls-panel {
+.chatAudioSender::-webkit-media-controls-panel {
     background-color: #dcf8c6;
+    margin-top: -5px;
+    padding-left: px;
+    size: small;
+}
+
+.chatAudioReciever::-webkit-media-controls-panel {
+    background-color: #ffffff;
     margin-top: -5px;
     padding-left: px;
     size: small;
