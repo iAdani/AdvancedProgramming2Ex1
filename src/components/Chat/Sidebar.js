@@ -26,20 +26,16 @@ function Sidebar(props) {
     }
   }, [search, JSON.stringify(contacts), props.updateLastMessage]); // stringify since useEffect doesn't catch array changes
 
-  const sortContacts = (contactA, contactB) => {}
-  //   //temporarily deactivated, need to change message.Time definition
-  //   const aLastMessageTime = GetLastMessage(
-  //     GetChat(props.activeUser, contactA)
-  //   ).Time;
-  //   const bLastMessageTime = GetLastMessage(
-  //     GetChat(props.activeUser, contactB)
-  //   ).Time;
-  //   return aLastMessageTime < bLastMessageTime
-  //     ? 1
-  //     : aLastMessageTime > bLastMessageTime
-  //     ? -1
-  //     : 0;
-  // };
+  const sortContacts = (contactA, contactB) => {
+    // debugger;
+    const chat1 = GetChat(props.activeUser, contactA);
+    const chat2 = GetChat(props.activeUser, contactB);
+    if (chat1.Messages.length === 0) return -1;
+    if (chat2.Messages.length === 0) return -1;
+    const time1 = new Date(GetLastMessage(chat1).Time);
+    const time2 = new Date(GetLastMessage(chat2).Time);
+    return time2 - time1;
+  };
 
   return (
     <div className="sidebar">

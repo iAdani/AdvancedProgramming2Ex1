@@ -23,7 +23,7 @@ function AddUser(username, nickname, password, image) {
 function AddMessage(chat, sender, type, content) {
   chat.Messages.push({
     Sender: sender,
-    Time: GetTime(),
+    Time: new Date().toJSON(),
     Type: type,
     Content: content,
   });
@@ -34,13 +34,13 @@ function AddContact(username, contact) {
     const user = DB.Users.find((user) => user.Username === username);
     if (!user.Contacts.find((t) => t === contact)) {
       user.Contacts.push(contact);
+      const cont = DB.Users.find((c) => c.Username === contact)
+      cont.Contacts.push(username);
       DB.Chats.push({
         Contact1: username,
         Contact2: contact,
         Messages: [],
       });
-      const cont = DB.Users.find((c) => c.Username === contact)
-      cont.Contacts.push(username);
     }
   }
 }
@@ -109,8 +109,8 @@ function GetLastMessage(chat) {
   return undefined;
 }
 
-function GetTime() {
-  const d = new Date();
+function GetTime(date) {
+  const d = new Date(date);
   const time =
     String(d.getHours()).padStart(2, "0") +
     ":" +
@@ -130,4 +130,5 @@ export {
   GetContacts,
   GetLastMessage,
   GetLastSeen,
+  GetTime
 };
